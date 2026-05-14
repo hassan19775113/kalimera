@@ -36,6 +36,9 @@ const HeroSection = ({
         style={{ backgroundImage: `url(${backgroundImage})` }}
       />
 
+      {/* Dark overlay for guaranteed text contrast */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/45 to-black/65" />
+
       {/* Content */}
       <div className="relative z-10 container-custom text-center text-white px-4">
         <motion.div
