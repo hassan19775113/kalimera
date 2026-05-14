@@ -2,7 +2,6 @@ import { Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import ScrollToTop from './components/ScrollToTop'
-import MusicPlayer from './components/MusicPlayer'
 import Home from './pages/Home'
 import Restaurant from './pages/Restaurant'
 import Brasserie from './pages/Brasserie'
@@ -18,7 +17,6 @@ function App() {
   return (
     <>
       <ScrollToTop />
-      <MusicPlayer />
       <Header />
       <main className="min-h-screen">
         <Routes>

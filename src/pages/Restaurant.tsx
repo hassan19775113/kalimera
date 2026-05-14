@@ -121,12 +121,6 @@ const Restaurant = () => {
             loop
             muted
             playsInline
-            disablePictureInPicture
-            onPause={(e) => {
-              if (!e.currentTarget.ended && !e.currentTarget.seeking) {
-                e.currentTarget.play().catch(() => {});
-              }
-            }}
             poster="/resturant/taverne_1.jpg.webp"
             className="absolute inset-0 w-full h-full object-cover"
           >

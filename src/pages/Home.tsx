@@ -176,12 +176,6 @@ const Home = () => {
             loop
             muted
             playsInline
-            disablePictureInPicture
-            onPause={(e) => {
-              if (!e.currentTarget.ended && !e.currentTarget.seeking) {
-                e.currentTarget.play().catch(() => {});
-              }
-            }}
             className="absolute inset-0 w-full h-full object-cover"
           >
             <source src="/video_kalimera_startseite_hd_komp.mp4" type="video/mp4" />
