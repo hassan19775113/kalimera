@@ -71,7 +71,7 @@ const HeroSection = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="inline-block text-lg md:text-xl text-white mb-8 max-w-2xl bg-black/55 backdrop-blur-sm px-5 py-3 rounded-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+              className="inline-block text-lg md:text-xl text-white mb-8 max-w-2xl bg-black/35 backdrop-blur-sm px-5 py-3 rounded-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
             >
               {description}
             </motion.p>
@@ -93,7 +93,95 @@ const HeroSection = ({
           )}
         </motion.div>
       </div>
-
+ {/* Sonne hinter Kalimera Text */}
+              <div className="absolute inset-0 z-[2] flex items-center justify-center overflow-hidden pointer-events-none">
+                <motion.div
+                  className="absolute"
+                  initial={{ opacity: 0, rotate: 0, scale: 0.8 }}
+                  animate={{ 
+                    opacity: 1, 
+                    rotate: 360,
+                    scale: 1
+                  }}
+                  transition={{ 
+                    opacity: { duration: 2, delay: 0.4 },
+                    scale: { duration: 2, delay: 0.4 },
+                    rotate: { 
+                      duration: 120, 
+                      repeat: Infinity,
+                      ease: "linear"
+                    }
+                  }}
+                >
+                  <svg 
+                    width="1200" 
+                    height="1200" 
+                    viewBox="0 0 900 900"
+                    className="w-full h-auto"
+                  >
+                    <defs>
+                      {/* Gradient für die Sonne */}
+                      <radialGradient id="heroSunGradient">
+                        <stop offset="0%" stopColor="rgb(212, 175, 55)" stopOpacity="0.35" />
+                        <stop offset="50%" stopColor="rgb(212, 175, 55)" stopOpacity="0.25" />
+                        <stop offset="100%" stopColor="rgb(212, 175, 55)" stopOpacity="0.1" />
+                      </radialGradient>
+                      
+                      {/* Blur Filter für weichen Glow */}
+                      <filter id="heroGlow">
+                        <feGaussianBlur stdDeviation="8" result="coloredBlur"/>
+                        <feMerge>
+                          <feMergeNode in="coloredBlur"/>
+                          <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                      </filter>
+                    </defs>
+                    
+                    {/* Äußere Sonnenstrahlen (lang) */}
+                    {[...Array(24)].map((_, i) => (
+                      <line
+                        key={`hero-outer-${i}`}
+                        x1="450"
+                        y1="450"
+                        x2="450"
+                       // y2="50"
+                        stroke="rgb(212, 175, 55)"
+                        strokeWidth="2"
+                       strokeLinecap="round"
+                        transform={`rotate(${i * 15} 450 450)`}
+                        opacity="0.08"
+                      />
+                    ))}
+                    
+                    {/* Mittlere Sonnenstrahlen */}
+                    {[...Array(24)].map((_, i) => (
+                      <line
+                        key={`hero-mid-${i}`}
+                        x1="450"
+                        y1="450"
+                        x2="450"
+                        y2="150"
+                        stroke="rgb(212, 175, 55)"
+                        strokeWidth="4"
+                        strokeLinecap="round"
+                        transform={`rotate(${i * 15 + 7.5} 450 450)`}
+                        opacity="0.05"
+                      />
+                    ))}
+                    
+                    {/* Große runde Sonne */}
+                    <circle
+                      cx="450"
+                      cy="450"
+                      r="380"
+                      fill="url(#heroSunGradient)"
+                      filter="url(#heroGlow)"
+                      opacity={0.09}
+                    />
+                    
+                  </svg>
+                </motion.div>
+              </div>
       {/* Scroll Indicator */}
       <motion.div
         initial={{ opacity: 0 }}

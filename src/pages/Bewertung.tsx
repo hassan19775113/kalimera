@@ -198,7 +198,7 @@ const Bewertung = () => {
         backgroundImage="/startseite_haus_interieur_2.jpg.webp"
         height="medium"
       />
-
+      
       {/* Welcome */}
       <section className="bg-white py-20 md:py-28">
         <div className="container-custom">
@@ -224,6 +224,7 @@ const Bewertung = () => {
             </p>
           </motion.div>
         </div>
+        
       </section>
 
       {/* Form */}

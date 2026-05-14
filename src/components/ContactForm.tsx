@@ -91,6 +91,7 @@ const ContactForm = ({ isReservation = false }: ContactFormProps) => {
 
   if (submitted) {
     return (
+  
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
@@ -116,6 +117,8 @@ const ContactForm = ({ isReservation = false }: ContactFormProps) => {
             : 'Ihre Nachricht wurde erfolgreich gesendet. Wir melden uns in Kürze bei Ihnen.'}
         </p>
       </motion.div>
+     
+      
     );
   }
 

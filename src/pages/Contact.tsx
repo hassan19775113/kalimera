@@ -120,6 +120,7 @@ const Contact = () => {
          
           </motion.div>
         </div>
+      
       </section>
 {/* Kontakt-Info + Formular */}
       <section className="bg-slate-300 py-16 md:py-24 border-b border-gray-200">
