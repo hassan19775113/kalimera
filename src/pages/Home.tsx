@@ -355,7 +355,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="hidden sm:block absolute z-30 pointer-events-auto top-[38%] md:top-1/2 md:-translate-y-1/2 right-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto top-[63%] md:top-1/2 md:-translate-y-1/2 right-[clamp(0.5rem,4vw,6rem)]"
           >
             <a href="/StartSeite/aktuelles-mia-kali-mera.pdf" target="_blank" rel="noopener noreferrer" className="group block relative">
               {/* Expanding Ring - Ping Effect */}
