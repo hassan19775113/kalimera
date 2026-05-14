@@ -276,7 +276,7 @@ const Home = () => {
           </motion.div>
         </div>
 
-        <div className="relative z-10 h-full flex items-center justify-center px-4 pointer-events-none">
+        <div className="relative z-[5] h-full flex items-center justify-center px-4 pointer-events-none">
           <div className="text-center max-w-5xl mx-auto">
        
           <motion.h1
@@ -299,7 +299,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.0 }}
-            className="absolute z-20 top-[clamp(5rem,8vw,9rem)] left-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto top-[clamp(5rem,8vw,9rem)] left-[clamp(0.5rem,4vw,6rem)]"
           >
             <Link to="/kontakt#reservierung" className="group block" aria-label="Tisch reservieren">
               <motion.div
@@ -344,7 +344,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="absolute z-20 top-[38%] md:top-1/2 md:-translate-y-1/2 right-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto top-[38%] md:top-1/2 md:-translate-y-1/2 right-[clamp(0.5rem,4vw,6rem)]"
           >
             <a href="/StartSeite/aktuelles-mia-kali-mera.pdf" target="_blank" rel="noopener noreferrer" className="group block relative">
               {/* Expanding Ring - Ping Effect */}
@@ -395,7 +395,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.2 }}
-            className="absolute z-20 bottom-[clamp(3.2rem,5.6vw,6.7rem)] left-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto bottom-[clamp(3.2rem,5.6vw,6.7rem)] left-[clamp(0.5rem,4vw,6rem)]"
           >
             <a href="/StartSeite/kalimera_fruehstueck.pdf" target="_blank" rel="noopener noreferrer" className="group block">
               <motion.div
@@ -445,7 +445,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="absolute z-20 top-[clamp(5rem,8vw,9rem)] right-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto top-[clamp(5rem,8vw,9rem)] right-[clamp(0.5rem,4vw,6rem)]"
           >
             <a href="/StartSeite/Januar-2026-speisekarte-aktuell-mit-getraenke-3.pdf" target="_blank" rel="noopener noreferrer" className="group block">
               <motion.div
@@ -494,7 +494,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.6 }}
-            className="absolute z-20 bottom-[clamp(3.2rem,5.6vw,6.7rem)] right-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto bottom-[clamp(3.2rem,5.6vw,6.7rem)] right-[clamp(0.5rem,4vw,6rem)]"
           >
             <a href="/StartSeite/mittagskarte-KW-20.pdf" target="_blank" rel="noopener noreferrer" className="group block">
               <motion.div

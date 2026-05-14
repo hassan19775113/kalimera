@@ -130,7 +130,7 @@ const Restaurant = () => {
 
         <motion.div
           style={{ y: heroY, opacity: heroOpacity }}
-          className="relative z-10 h-full flex flex-col items-center justify-center px-4 text-center pointer-events-none"
+          className="relative z-[5] h-full flex flex-col items-center justify-center px-4 text-center pointer-events-none"
         >
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -174,7 +174,7 @@ const Restaurant = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="absolute z-20 bottom-[clamp(3.2rem,5.6vw,6.7rem)] left-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto bottom-[clamp(3.2rem,5.6vw,6.7rem)] left-[clamp(0.5rem,4vw,6rem)]"
           >
             <a
               href="/resturant/speisekarte.pdf"
@@ -220,7 +220,7 @@ const Restaurant = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.6 }}
-            className="absolute z-20 bottom-[clamp(3.2rem,5.6vw,6.7rem)] right-[clamp(0.5rem,4vw,6rem)]"
+            className="absolute z-30 pointer-events-auto bottom-[clamp(3.2rem,5.6vw,6.7rem)] right-[clamp(0.5rem,4vw,6rem)]"
           >
             <Link
               to="/kontakt#reservierung"
