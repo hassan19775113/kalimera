@@ -51,7 +51,7 @@ const HeroSection = ({
               transition={{ delay: 0.2, duration: 0.8 }}
               className="mb-5 flex justify-center"
             >
-              <span className="inline-block px-5 py-2 rounded-full bg-black/45 backdrop-blur-md border border-gold/50 font-bebas tracking-[0.3em] text-gold text-xs md:text-sm shadow-lg">
+              <span className="inline-block px-5 py-2 rounded-full bg-black/70 backdrop-blur-md border border-gold/60 font-bebas tracking-[0.3em] text-gold text-xs md:text-sm shadow-xl">
                 {subtitle}
               </span>
             </motion.div>
@@ -71,7 +71,7 @@ const HeroSection = ({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.8 }}
-              className="text-lg md:text-xl text-white mb-8 max-w-2xl mx-auto drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
+              className="inline-block text-lg md:text-xl text-white mb-8 max-w-2xl bg-black/55 backdrop-blur-sm px-5 py-3 rounded-2xl drop-shadow-[0_2px_8px_rgba(0,0,0,0.9)]"
             >
               {description}
             </motion.p>
