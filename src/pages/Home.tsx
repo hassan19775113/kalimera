@@ -1255,7 +1255,7 @@ const Home = () => {
                         </div>
 
                         <div className="mb-3">
-                          <span className="inline-block px-4 py-1.5 rounded-full font-bold tracking-wider backdrop-blur-md shadow-lg bg-gold/50 border border-gold text-white text-xs">
+                          <span className="inline-block px-4 py-1.5 rounded-full font-bold tracking-wider backdrop-blur-md shadow-lg bg-gold border border-gold text-primary text-xs">
                             {section.subtitle}
                           </span>
                         </div>
@@ -1539,7 +1539,7 @@ const Home = () => {
                   {/* Customer Info */}
                   <div className="flex items-center gap-4 pt-6 border-t border-gray-100">
                     {/* Avatar */}
-                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
+                    <div className="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center text-primary font-bold text-lg shadow-lg">
                       {testimonial.avatar}
                     </div>
                     
@@ -1574,7 +1574,7 @@ const Home = () => {
               href="https://www.google.com/maps/search/?api=1&query=Kalimera+K%26N+GmbH+Steinriede+2+30827+Garbsen"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gold to-yellow-600 text-white font-bold rounded-xl hover:from-yellow-600 hover:to-gold transition-all duration-300 shadow-lg hover:shadow-gold/50 hover:scale-105"
+              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-gold to-yellow-600 text-primary font-bold rounded-xl hover:from-yellow-600 hover:to-gold transition-all duration-300 shadow-lg hover:shadow-gold/50 hover:scale-105"
             >
               <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
                 <path d="M12 0c-4.198 0-8 3.403-8 7.602 0 4.198 3.469 9.21 8 16.398 4.531-7.188 8-12.2 8-16.398 0-4.199-3.801-7.602-8-7.602zm0 11c-1.657 0-3-1.343-3-3s1.343-3 3-3 3 1.343 3 3-1.343 3-3 3z"/>

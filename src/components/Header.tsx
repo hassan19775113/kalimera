@@ -95,7 +95,7 @@ const Header = () => {
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className={`z-50 p-3 md:p-4 rounded-full transition-all duration-300 ${
                   isMenuOpen
-                    ? 'bg-gold text-white border-2 border-gold'
+                    ? 'bg-gold text-primary border-2 border-gold'
                     : isScrolled
                     ? 'bg-gold/20 border border-gold/40 text-gold hover:bg-gold/30 backdrop-blur-sm'
                     : 'text-white hover:bg-white/10 backdrop-blur-sm border border-white/20'
