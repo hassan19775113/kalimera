@@ -397,7 +397,7 @@ const Bewertung = () => {
                             animate={{ opacity: 1, y: 0, scale: 1 }}
                             exit={{ opacity: 0, y: -8, scale: 0.95 }}
                             transition={{ duration: 0.2, ease: 'easeOut' }}
-                            className="absolute top-full left-0 mt-2 bg-white border-2 border-gold/40 rounded-2xl shadow-2xl z-50 p-3 w-[300px]"
+                            className="absolute top-full left-0 mt-2 bg-white border-2 border-gold/40 rounded-2xl shadow-2xl z-50 p-3 w-[min(300px,calc(100vw-2rem))]"
                           >
                             {/* Monatsnavigation */}
                             <div className="flex items-center justify-between mb-2">

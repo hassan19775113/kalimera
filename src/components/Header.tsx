@@ -324,7 +324,7 @@ const Header = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Menu Content */}
-              <div className="w-full max-w-3xl px-6 pt-40 pb-12 md:px-12 md:pt-30 md:pb-16">
+              <div className="w-full max-w-3xl px-5 pt-24 pb-10 md:px-12 md:pt-32 md:pb-16">
                 {/* Title */}
            
 
