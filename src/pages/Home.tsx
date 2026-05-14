@@ -8,6 +8,7 @@ import { SITE_INFO, CONTACT_INFO } from '../utils/constants';
 const Home = () => {
   // Marquee — manuelles Scroll-Container, swipe + click funktionieren nativ
   const marqueeRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
 
   const scrollMarquee = (direction: 'prev' | 'next') => {
     const el = marqueeRef.current;
@@ -15,6 +16,16 @@ const Home = () => {
     const cardWidth = el.firstElementChild?.clientWidth ?? 400;
     el.scrollBy({
       left: direction === 'next' ? cardWidth + 24 : -(cardWidth + 24),
+      behavior: 'smooth',
+    });
+  };
+
+  const scrollTestimonials = (direction: 'prev' | 'next') => {
+    const el = testimonialsRef.current;
+    if (!el) return;
+    const cardWidth = el.firstElementChild?.clientWidth ?? 320;
+    el.scrollBy({
+      left: direction === 'next' ? cardWidth + 16 : -(cardWidth + 16),
       behavior: 'smooth',
     });
   };
@@ -344,7 +355,7 @@ const Home = () => {
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 1.1 }}
-            className="absolute z-30 pointer-events-auto top-[38%] md:top-1/2 md:-translate-y-1/2 right-[clamp(0.5rem,4vw,6rem)]"
+            className="hidden sm:block absolute z-30 pointer-events-auto top-[38%] md:top-1/2 md:-translate-y-1/2 right-[clamp(0.5rem,4vw,6rem)]"
           >
             <a href="/StartSeite/aktuelles-mia-kali-mera.pdf" target="_blank" rel="noopener noreferrer" className="group block relative">
               {/* Expanding Ring - Ping Effect */}
@@ -869,7 +880,7 @@ const Home = () => {
           {/* Scroll-Container (native Touch-Swipe + JS-Scroll) */}
           <div
             ref={marqueeRef}
-            className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth [&::-webkit-scrollbar]:hidden"
+            className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-4 md:px-12 [&::-webkit-scrollbar]:hidden"
             style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
           >
             {[
@@ -895,7 +906,7 @@ const Home = () => {
               .map((item, i) => (
                 <div
                   key={`${item.src}-${i}`}
-                  className="group relative flex-shrink-0 w-[260px] md:w-[340px] lg:w-[400px] aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-gold/20 hover:border-gold/60 transition-all duration-500 select-none"
+                  className="group relative flex-shrink-0 w-[80vw] sm:w-[280px] md:w-[340px] lg:w-[400px] aspect-[4/5] rounded-2xl md:rounded-3xl overflow-hidden shadow-2xl border border-gold/20 hover:border-gold/60 transition-all duration-500 select-none snap-center"
                 >
                   <img
                     src={item.src}
@@ -1492,28 +1503,42 @@ const Home = () => {
           </motion.div>
         </div>
 
-        {/* Horizontal Scrolling Testimonials */}
-        <div className="relative overflow-hidden w-full">
-            {/* Infinite Scroll Container */}
-            <motion.div
-              className="flex gap-6"
-              animate={{
-                x: ['0%', '-50%']
-              }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: 'loop',
-                  duration: 40,
-                  ease: 'linear'
-                }
-              }}
-            >
-              {/* Testimonials 2x duplizieren für nahtlosen Loop */}
-              {[...testimonials, ...testimonials].map((testimonial, index) => (
+        {/* Manueller Scroll-Container mit Nav-Pfeilen + Touch-Swipe */}
+        <div className="relative">
+          {/* Prev Button */}
+          <button
+            type="button"
+            onClick={() => scrollTestimonials('prev')}
+            aria-label="Vorherige Bewertung"
+            className="absolute left-2 md:left-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-14 md:h-14 rounded-full bg-gold/95 hover:bg-gold text-primary flex items-center justify-center shadow-2xl backdrop-blur-sm hover:scale-110 transition-all duration-300"
+          >
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+
+          {/* Next Button */}
+          <button
+            type="button"
+            onClick={() => scrollTestimonials('next')}
+            aria-label="Nächste Bewertung"
+            className="absolute right-2 md:right-6 top-1/2 -translate-y-1/2 z-20 w-11 h-11 md:w-14 md:h-14 rounded-full bg-gold/95 hover:bg-gold text-primary flex items-center justify-center shadow-2xl backdrop-blur-sm hover:scale-110 transition-all duration-300"
+          >
+            <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.5">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+
+          {/* Scroll-Container */}
+          <div
+            ref={testimonialsRef}
+            className="flex gap-4 md:gap-6 overflow-x-auto scroll-smooth snap-x snap-mandatory px-4 md:px-12 [&::-webkit-scrollbar]:hidden"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {testimonials.map((testimonial) => (
                 <div
-                  key={`${testimonial.id}-${index}`}
-                  className="group relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-gold/30 flex-shrink-0 w-[300px] md:w-[400px]"
+                  key={testimonial.id}
+                  className="group relative bg-white rounded-2xl p-6 md:p-8 shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-gold/30 flex-shrink-0 w-[85vw] sm:w-[340px] md:w-[400px] snap-center"
                 >
                   {/* Quote Icon */}
                   <div className="absolute top-6 right-6 text-gold/20 group-hover:text-gold/40 transition-colors">
@@ -1554,12 +1579,12 @@ const Home = () => {
                   <div className="absolute inset-0 rounded-2xl border-2 border-gold opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
                 </div>
               ))}
-            </motion.div>
-
-            {/* Gradient Fade Edges */}
-            <div className="absolute left-0 top-0 bottom-0 w-32 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
-            <div className="absolute right-0 top-0 bottom-0 w-32 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
           </div>
+
+          {/* Sanfte Fade-Ränder links/rechts */}
+          <div className="absolute left-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-r from-white to-transparent pointer-events-none z-10" />
+          <div className="absolute right-0 top-0 bottom-0 w-8 md:w-20 bg-gradient-to-l from-white to-transparent pointer-events-none z-10" />
+        </div>
 
         {/* CTA */}
         <div className="container-custom relative z-10 mt-16">
