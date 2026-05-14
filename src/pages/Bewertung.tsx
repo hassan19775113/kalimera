@@ -195,7 +195,7 @@ const Bewertung = () => {
         title="Bewertung"
         subtitle="EINE EINZIGARTIGE GASTRONOMISCHE REISE"
         description="Wir freuen uns auf Ihre Resonanz"
-        backgroundImage="/bewertungen_essen_1.jpg"
+        backgroundImage="/startseite_haus_interieur_2.jpg.webp"
         height="medium"
       />
 
