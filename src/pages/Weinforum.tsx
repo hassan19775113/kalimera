@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import SEO from '../components/SEO';
 import AccentDivider from '../components/AccentDivider';
+import HeroVideo from '../components/HeroVideo';
 import { CONTACT_INFO } from '../utils/constants';
 
 const Weinforum = () => {
@@ -121,16 +122,10 @@ const Weinforum = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <HeroVideo
+            src="/wein/video_kalimera_weinforum_griechisches_haus_hd_komp.mp4"
             poster="/wein/weinforum_4.jpg"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/wein/video_kalimera_weinforum_griechisches_haus_hd_komp.mp4" type="video/mp4" />
-          </video>
+          />
         </motion.div>
 
         <motion.div

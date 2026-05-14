@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import SEO from '../components/SEO';
 import AccentDivider from '../components/AccentDivider';
+import HeroVideo from '../components/HeroVideo';
 import { SITE_INFO, CONTACT_INFO } from '../utils/constants';
 
 const Home = () => {
@@ -182,20 +183,7 @@ const Home = () => {
           animate={{ scale: 1, opacity: 1 }}
           transition={{ duration: 2, ease: [0.43, 0.13, 0.23, 0.96] }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/video_kalimera_startseite_hd_komp.mp4" type="video/mp4" />
-            {/* Fallback Image falls Video nicht lädt */}
-            <div 
-              className="absolute inset-0 w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: 'url(https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=1920&q=80)' }}
-            />
-          </video>
+          <HeroVideo src="/video_kalimera_startseite_hd_komp.mp4" />
         </motion.div>
         {/* Sonne hinter Kalimera Text */}
         <div className="absolute inset-0 z-[2] flex items-center justify-center overflow-hidden pointer-events-none">

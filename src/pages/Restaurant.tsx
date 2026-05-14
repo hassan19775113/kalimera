@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import SEO from '../components/SEO';
 import AccentDivider from '../components/AccentDivider';
+import HeroVideo from '../components/HeroVideo';
 import { CONTACT_INFO } from '../utils/constants';
 
 const Restaurant = () => {
@@ -116,16 +117,10 @@ const Restaurant = () => {
           animate={{ scale: 1 }}
           transition={{ duration: 2, ease: [0.25, 0.46, 0.45, 0.94] }}
         >
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <HeroVideo
+            src="/video_kalimera_startseite_hd_komp.mp4"
             poster="/resturant/taverne_1.jpg.webp"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source src="/video_kalimera_startseite_hd_komp.mp4" type="video/mp4" />
-          </video>
+          />
         </motion.div>
 
         <motion.div

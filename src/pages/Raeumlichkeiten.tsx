@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 import SEO from '../components/SEO';
 import AccentDivider from '../components/AccentDivider';
+import HeroVideo from '../components/HeroVideo';
 
 const Raeumlichkeiten = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -243,15 +244,7 @@ const Raeumlichkeiten = () => {
         ref={heroRef}
         className="relative h-screen min-h-[640px] overflow-hidden bg-black"
       >
-        <video
-          autoPlay
-          loop
-          muted
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source src="/video_kalimera_raeumlichkeiten_hd_komp.mp4" type="video/mp4" />
-        </video>
+        <HeroVideo src="/video_kalimera_raeumlichkeiten_hd_komp.mp4" />
 
         <motion.div
           style={{ y: heroTextY, opacity: heroOpacity }}
