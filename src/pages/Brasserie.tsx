@@ -128,6 +128,12 @@ const Brasserie = () => {
             loop
             muted
             playsInline
+            disablePictureInPicture
+            onPause={(e) => {
+              if (!e.currentTarget.ended && !e.currentTarget.seeking) {
+                e.currentTarget.play().catch(() => {});
+              }
+            }}
             poster="/brasserie_1-1.jpg.webp"
             className="absolute inset-0 w-full h-full object-cover"
           >

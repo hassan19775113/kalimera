@@ -97,6 +97,12 @@ const MusicPlayer = () => {
       }
       setIsPlaying(true);
       console.log('[MusicPlayer] 🔊 Aktiv (Trigger:', e?.type, ')');
+
+      // iOS: stumme Videos werden manchmal pausiert, wenn Audio startet — sofort neu starten
+      document.querySelectorAll('video').forEach((v) => {
+        if (v.paused) v.play().catch(() => {});
+      });
+
       cleanup(); // erst nach echtem Erfolg
     };
 
@@ -142,6 +148,12 @@ const MusicPlayer = () => {
         if (audio.paused) await audio.play();
         setIsPlaying(true);
         userPausedRef.current = false;
+
+        // iOS pausiert oft stumme Videos, wenn ein anderer Audio-Track startet.
+        // Direkt nach play() noch im User-Gesten-Kontext alle Hero-Videos neu starten.
+        document.querySelectorAll('video').forEach((v) => {
+          if (v.paused) v.play().catch(() => {});
+        });
       }
     } catch (err) {
       console.error('[MusicPlayer] Wiedergabe fehlgeschlagen:', err);

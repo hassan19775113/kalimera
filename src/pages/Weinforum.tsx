@@ -126,6 +126,12 @@ const Weinforum = () => {
             loop
             muted
             playsInline
+            disablePictureInPicture
+            onPause={(e) => {
+              if (!e.currentTarget.ended && !e.currentTarget.seeking) {
+                e.currentTarget.play().catch(() => {});
+              }
+            }}
             poster="/wein/weinforum_4.jpg"
             className="absolute inset-0 w-full h-full object-cover"
           >
