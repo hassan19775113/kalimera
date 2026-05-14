@@ -15,7 +15,7 @@ Gehe zu [dash.cloudflare.com](https://dash.cloudflare.com/sign-up) und registrie
 ### 2. Neues Pages-Projekt erstellen
 - Im Dashboard links: **Workers & Pages** → **Create application** → Tab **Pages** → **Connect to Git**
 - GitHub autorisieren → Repository **`hassan19775113/kalimera`** auswählen → **Begin setup**
-
+ dash.cloudflare.com/?to=/:account/workers-and-pages/create/pages/new
 ### 3. Build-Einstellungen
 | Feld | Wert |
 |---|---|
