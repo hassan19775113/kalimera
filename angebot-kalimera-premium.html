@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angebot – Neuer Webauftritt für Kalimera</title>
+  <style>
+    :root {
+      --primary: #143a63;
+      --primary-dark: #0d2845;
+      --gold: #d4af37;
+      --gold-dark: #b89322;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --success: #0f766e;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      line-height: 1.55;
+    }
+
+    .page {
+      max-width: 980px;
+      margin: 32px auto;
+      background: var(--white);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #eef2f7;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, rgba(20,58,99,0.98), rgba(13,40,69,0.96));
+      color: white;
+      padding: 56px 56px 40px;
+      position: relative;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: -120px;
+      background: radial-gradient(circle, rgba(212,175,55,0.28) 0%, rgba(212,175,55,0.08) 45%, rgba(212,175,55,0) 70%);
+      border-radius: 50%;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid rgba(212,175,55,0.45);
+      border-radius: 999px;
+      color: #f7e7a9;
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 12px;
+      line-height: 1.15;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      max-width: 760px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 760px;
+      color: rgba(255,255,255,0.88);
+      margin-top: 16px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .meta-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 18px;
+      backdrop-filter: blur(6px);
+    }
+
+    .meta-card .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.66);
+      margin-bottom: 6px;
+    }
+
+    .meta-card .value {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .content {
+      padding: 44px 56px 56px;
+    }
+
+    .section {
+      margin-bottom: 38px;
+    }
+
+    .section-title {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    .lead-box {
+      background: linear-gradient(180deg, #fffdfa 0%, #fff 100%);
+      border: 1px solid #f3e7bb;
+      border-left: 5px solid var(--gold);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+    }
+
+    .card.featured {
+      border: 2px solid var(--gold);
+      box-shadow: 0 14px 36px rgba(212,175,55,0.18);
+      position: relative;
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(212,175,55,0.14);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    .price {
+      font-size: 38px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 10px 0 6px;
+    }
+
+    .price small {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    ul {
+      margin: 14px 0 0;
+      padding-left: 20px;
+    }
+
+    li { margin-bottom: 9px; }
+
+    .highlight-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .highlight-list li {
+      padding-left: 28px;
+      position: relative;
+      margin-bottom: 11px;
+    }
+
+    .highlight-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    .table th, .table td {
+      border: 1px solid var(--line);
+      padding: 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table th {
+      background: #f8fafc;
+      color: var(--primary);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    .quote {
+      padding: 22px 24px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff9ec 0%, #ffffff 100%);
+      border: 1px solid #f5deb0;
+      font-size: 18px;
+      color: #3f3f46;
+    }
+
+    .footer-box {
+      background: linear-gradient(135deg, #143a63 0%, #102f52 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .footer-box h3 {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .small {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .signature {
+      margin-top: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .recommendation {
+      border: 2px dashed rgba(212,175,55,0.6);
+      border-radius: 16px;
+      padding: 18px 20px;
+      background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(212,175,55,0.03));
+    }
+
+    @media print {
+      body {
+        background: #fff;
+      }
+      .page {
+        margin: 0;
+        max-width: 100%;
+        box-shadow: none;
+        border: none;
+        border-radius: 0;
+      }
+      .hero, .content {
+        padding-left: 34px;
+        padding-right: 34px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .meta, .columns {
+        grid-template-columns: 1fr;
+      }
+      .hero, .content {
+        padding: 28px;
+      }
+      .hero h1 {
+        font-size: 34px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <section class="hero">
+      <div class="badge">Premium-Angebot · Neuer Webauftritt</div>
+      <h1>Angebot für einen modernen, schnellen und hochwertigen Webauftritt für Kalimera</h1>
+      <p>
+        Ziel dieses Projekts ist die Ablösung der bestehenden Website durch einen deutlich moderneren,
+        schnelleren und visuell hochwertigeren Internetauftritt, der das Kalimera als Premium-Gastronomie,
+        Event-Location und mediterrane Erlebniswelt überzeugend präsentiert.
+      </p>
+
+      <div class="meta">
+        <div class="meta-card">
+          <div class="label">Kunde</div>
+          <div class="value">Kalimera Hannover / Garbsen</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Projektziel</div>
+          <div class="value">Relaunch statt langsamer Bestandsseite</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Stand</div>
+          <div class="value">Angebot zur Entscheidungsgrundlage</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+      <section class="section">
+        <h2 class="section-title">Ausgangssituation</h2>
+        <div class="lead-box">
+          Die bestehende Website wird als <strong>langsam</strong>, <strong>visuell zu dunkel</strong> und technisch nicht mehr überzeugend wahrgenommen.
+          Zusätzlich treten <strong>Fehlermeldungen in der Browser-Konsole</strong> auf. Gerade im Gastronomie-Bereich ist der erste Eindruck entscheidend:
+          Eine Website muss Appetit machen, Vertrauen schaffen und Reservierungen fördern.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Ziel des neuen Webauftritts</h2>
+        <ul class="highlight-list">
+          <li>Deutlich hellerer, freundlicherer und hochwertigerer Gesamtauftritt</li>
+          <li>Schnellere Ladezeiten und bessere Nutzererfahrung auf Mobilgeräten</li>
+          <li>Klare Präsentation der Bereiche Restaurant, Brasserie, Markt, Weinforum und Events</li>
+          <li>Professionelle Darstellung von Speisekarten, Aktionen und Reservierungsmöglichkeiten</li>
+          <li>Technisch saubere und zukunftsfähige Basis ohne typischen WordPress-Ballast</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Warum eine solche Website diesen Wert hat</h2>
+        <p class="section-subtitle">
+          Der Preis basiert nicht nur auf dem Design, sondern auf der Kombination aus Strategie, Gestaltung, technischer Entwicklung, mobiler Optimierung,
+          Performance, SEO-Basis, Testing und Liveschaltung.
+        </p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Leistungsbereich</th>
+              <th>Warum relevant</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Individuelles Design</td>
+              <td>Keine austauschbare Standardvorlage, sondern ein Auftritt mit eigener visueller Handschrift für Kalimera.</td>
+            </tr>
+            <tr>
+              <td>Moderne Frontend-Entwicklung</td>
+              <td>Schneller, sauberer und flexibler als viele schwergewichtige Standardlösungen.</td>
+            </tr>
+            <tr>
+              <td>Mobile Optimierung</td>
+              <td>Ein großer Teil der Gäste sucht Restaurants heute direkt über das Smartphone.</td>
+            </tr>
+            <tr>
+              <td>SEO-Basis</td>
+              <td>Bessere Auffindbarkeit und bessere technische Grundlage für Google.</td>
+            </tr>
+            <tr>
+              <td>Formulare / Reservierung</td>
+              <td>Direkte Kontaktaufnahme und mehr Anfragen durch klare Call-to-Actions.</td>
+            </tr>
+            <tr>
+              <td>Launch / Testing</td>
+              <td>Saubere Liveschaltung und Minimierung technischer Probleme nach dem Go-Live.</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Angebotspakete</h2>
+        <div class="columns">
+          <article class="card">
+            <div class="tag">Ohne Wartungsvertrag</div>
+            <h3>Einmalige Neuerstellung</h3>
+            <div class="price">6.400 € <small>netto</small></div>
+            <p class="small">Für Kunden, die nach Livegang keine laufende Betreuung benötigen.</p>
+            <ul>
+              <li>Konzeption und Struktur des neuen Webauftritts</li>
+              <li>Individuelles, modernes Design passend zur Marke Kalimera</li>
+              <li>Umsetzung als performante Website</li>
+              <li>Responsive Optimierung für Smartphone, Tablet und Desktop</li>
+              <li>Integration der Hauptseiten und Inhalte</li>
+              <li>Kontakt- und Reservierungsformular</li>
+              <li>Einbindung von Speisekarten / PDF-Dateien</li>
+              <li>Google Maps und grundlegende SEO-Einrichtung</li>
+              <li>Impressum / Datenschutz-Seiten</li>
+              <li>Deployment / Liveschaltung</li>
+              <li>1 Korrekturschleife vor finalem Go-Live</li>
+            </ul>
+          </article>
+
+          <article class="card featured">
+            <div class="tag">Empfohlen</div>
+            <h3>Neuerstellung + Betreuung</h3>
+            <div class="price">7.900 € <small>netto einmalig</small></div>
+            <p><strong>zzgl. 199 € netto / Monat</strong></p>
+            <p class="small">Die beste Lösung, wenn Karten, Öffnungszeiten, PDFs oder kleinere Inhalte regelmäßig aktualisiert werden sollen.</p>
+            <ul>
+              <li>Alle Leistungen aus dem Basisangebot</li>
+              <li>Technische Betreuung nach Livegang</li>
+              <li>Regelmäßige Funktionskontrolle</li>
+              <li>Kleinere Inhaltsänderungen</li>
+              <li>Austausch von PDFs / Speisekarten / Aktionen</li>
+              <li>Pflege von Öffnungszeiten und Kontaktinformationen</li>
+              <li>Support bei kleineren Anpassungen</li>
+              <li>Entlastung des Kunden im Tagesgeschäft</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Warum die Variante mit Wartung besonders sinnvoll ist</h2>
+        <div class="recommendation">
+          Gerade in der Gastronomie ändern sich Inhalte regelmäßig: Speisekarten, Mittagsangebote, Aktionen, Veranstaltungen, Feiertagszeiten oder Reservierungshinweise.
+          Mit einem Wartungspaket bleibt die Website <strong>aktuell, technisch kontrolliert und ohne zusätzlichen Aufwand für den Kunden</strong>.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Vorteile dieser Lösung gegenüber WordPress</h2>
+        <div class="columns">
+          <div class="card">
+            <h3>Vorteile der neuen Lösung</h3>
+            <ul class="highlight-list">
+              <li>Schnellere Ladezeiten durch schlankere technische Basis</li>
+              <li>Weniger Abhängigkeit von Plugins und Theme-Konflikten</li>
+              <li>Individuelleres Design statt Standard-Template-Look</li>
+              <li>Weniger technische Altlasten und geringerer Wartungsballast</li>
+              <li>Sehr gute Grundlage für modernes Branding und bessere Nutzerführung</li>
+              <li>Stärkere Wirkung für ein hochwertiges Gastronomie-Konzept</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Faire Einordnung</h3>
+            <p>
+              WordPress ist für viele Projekte gut geeignet – insbesondere dann, wenn sehr viele Inhalte laufend durch Redakteure gepflegt werden sollen.
+              Für dieses Projekt steht jedoch ein <strong>schneller, hochwertiger, emotionaler und technisch sauberer Premium-Auftritt</strong> im Vordergrund.
+            </p>
+            <p>
+              Genau dafür ist die hier angebotene Lösung besonders stark geeignet.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Realistische Marktpreise in Deutschland</h2>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Anbieter</th>
+              <th>Typischer Marktpreis</th>
+              <th>Einordnung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Günstige Freelancer / Template-Lösung</td>
+              <td>2.000 € – 4.000 € netto</td>
+              <td>Oft einfacher, weniger individuell und technisch weniger hochwertig.</td>
+            </tr>
+            <tr>
+              <td>Gute Freelancer</td>
+              <td>4.500 € – 8.000 € netto</td>
+              <td>Individueller, performanter und professioneller umgesetzt.</td>
+            </tr>
+            <tr>
+              <td>Kleine Agenturen</td>
+              <td>7.000 € – 12.000 € netto</td>
+              <td>Mit Konzept, Design, Umsetzung, Launch und teils laufender Betreuung.</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="small">
+          Das vorliegende Angebot positioniert sich damit realistisch und marktgerecht im mittleren professionellen Bereich.
+        </p>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Nicht enthalten</h2>
+        <ul>
+          <li>Foto- oder Videoproduktion</li>
+          <li>Umfangreiche Texterstellung / Copywriting</li>
+          <li>Größere zusätzliche Funktionen außerhalb des vereinbarten Umfangs</li>
+          <li>Laufende SEO-Kampagnen oder Werbeanzeigen</li>
+          <li>Domain- / Hostingkosten externer Anbieter</li>
+        </ul>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Verkaufsargument in einem Satz</h2>
+        <div class="quote">
+          Sie investieren nicht nur in eine neue Website, sondern in einen deutlich besseren ersten Eindruck,
+          schnellere Ladezeiten, mehr Vertrauen bei potenziellen Gästen und eine modernere digitale Präsentation Ihres gesamten Gastronomie-Konzepts.
+        </div>
+      </section>
+
+      <section class="section footer-box">
+        <h3>Empfehlung</h3>
+        <p>
+          Aus wirtschaftlicher und praktischer Sicht ist die Variante <strong>„Neuerstellung + Betreuung“</strong> die sinnvollste Entscheidung,
+          da sie nicht nur einen hochwertigen Relaunch ermöglicht, sondern auch den laufenden Betrieb absichert.
+        </p>
+        <p>
+          Gerade für ein Restaurant mit wechselnden Karten, Aktionen und saisonalen Inhalten sorgt dieses Modell dafür,
+          dass die Website dauerhaft aktuell, schnell und professionell bleibt.
+        </p>
+        <p class="signature">Mit freundlichen Grüßen<br />Ihr Webdesign- & Entwicklungsangebot</p>
+      </section>
+    </section>
+  </main>
+</body>
+</html>
