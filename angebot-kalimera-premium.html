@@ -23,12 +23,20 @@
 
     * { box-sizing: border-box; }
 
-    body {
+    html, body {
       margin: 0;
+      padding: 0;
+    }
+
+    body {
       font-family: "Inter", "Segoe UI", Arial, sans-serif;
       color: var(--text);
       background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
       line-height: 1.55;
+    }
+
+    img {
+      max-width: 100%;
     }
 
     .page {
@@ -75,6 +83,8 @@
     h1, h2, h3, h4 {
       margin: 0 0 12px;
       line-height: 1.15;
+      break-after: avoid-page;
+      page-break-after: avoid;
     }
 
     .hero h1 {
@@ -102,6 +112,8 @@
       border-radius: 14px;
       padding: 16px 18px;
       backdrop-filter: blur(6px);
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .meta-card .label {
@@ -123,6 +135,8 @@
 
     .section {
       margin-bottom: 38px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .section-title {
@@ -142,6 +156,8 @@
       border-left: 5px solid var(--gold);
       border-radius: 14px;
       padding: 18px 20px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .problem-box {
@@ -150,6 +166,8 @@
       border-left: 5px solid var(--danger);
       border-radius: 14px;
       padding: 18px 20px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .columns {
@@ -164,6 +182,8 @@
       padding: 24px;
       background: #fff;
       box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .card.featured {
@@ -252,6 +272,8 @@
       border-collapse: collapse;
       margin-top: 12px;
       font-size: 15px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .table th, .table td {
@@ -276,6 +298,8 @@
       border: 1px solid #f5deb0;
       font-size: 18px;
       color: #3f3f46;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .footer-box {
@@ -283,6 +307,8 @@
       color: #fff;
       border-radius: 18px;
       padding: 28px;
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .footer-box h3 {
@@ -306,6 +332,8 @@
       border-radius: 16px;
       padding: 18px 20px;
       background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(212,175,55,0.03));
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .screenshot-box {
@@ -315,12 +343,16 @@
       overflow: hidden;
       background: #fff;
       box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+      break-inside: avoid;
+      page-break-inside: avoid;
     }
 
     .screenshot-box img {
       display: block;
       width: 100%;
       height: auto;
+      object-fit: contain;
+      background: #fff;
     }
 
     .screenshot-caption {
@@ -331,20 +363,101 @@
       border-top: 1px solid var(--line);
     }
 
+    code {
+      background: #f3f4f6;
+      padding: 2px 6px;
+      border-radius: 6px;
+      font-size: 0.95em;
+    }
+
+    @page {
+      size: A4;
+      margin: 14mm;
+    }
+
     @media print {
-      body {
-        background: #fff;
+      html, body {
+        background: #fff !important;
       }
+
+      body {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+
       .page {
         margin: 0;
         max-width: 100%;
         box-shadow: none;
         border: none;
         border-radius: 0;
+        overflow: visible;
       }
+
       .hero, .content {
-        padding-left: 34px;
-        padding-right: 34px;
+        padding-left: 22px;
+        padding-right: 22px;
+      }
+
+      .hero {
+        padding-top: 34px;
+        padding-bottom: 28px;
+      }
+
+      .hero:before {
+        display: none;
+      }
+
+      .section {
+        margin-bottom: 26px;
+      }
+
+      .columns {
+        display: block;
+      }
+
+      .columns > * {
+        margin-bottom: 18px;
+      }
+
+      .card,
+      .meta-card,
+      .lead-box,
+      .problem-box,
+      .quote,
+      .recommendation,
+      .screenshot-box,
+      .footer-box,
+      .table,
+      table,
+      tr,
+      td,
+      th,
+      ul,
+      ol,
+      p,
+      h1,
+      h2,
+      h3 {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+
+      .table thead {
+        display: table-header-group;
+      }
+
+      .table tr {
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .screenshot-box {
+        margin-top: 14px;
+      }
+
+      .screenshot-box img {
+        max-height: 220mm;
       }
     }
 
