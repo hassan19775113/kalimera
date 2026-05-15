@@ -1,0 +1,15 @@
+# Cloudflare Pages — Cache-Control für deterministisches Verhalten
+# HTML niemals cachen → Browser holt immer frisches index.html, das aktuelle JS-Hashes referenziert.
+# Hash-Assets (mit Content-Hash im Namen) sind immutable und können maximal lange gecacht werden.
+
+/
+  Cache-Control: public, max-age=0, must-revalidate
+
+/*
+  Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
