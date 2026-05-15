@@ -16,6 +16,9 @@
       --bg: #f8fafc;
       --white: #ffffff;
       --success: #0f766e;
+      --danger: #991b1b;
+      --danger-bg: #fef2f2;
+      --danger-line: #fecaca;
     }
 
     * { box-sizing: border-box; }
@@ -141,6 +144,14 @@
       padding: 18px 20px;
     }
 
+    .problem-box {
+      background: linear-gradient(180deg, var(--danger-bg) 0%, #fff 100%);
+      border: 1px solid var(--danger-line);
+      border-left: 5px solid var(--danger);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -215,6 +226,27 @@
       font-weight: 800;
     }
 
+    .issue-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
+    }
+
+    .issue-list li {
+      padding-left: 28px;
+      position: relative;
+      margin-bottom: 10px;
+    }
+
+    .issue-list li:before {
+      content: "⚠";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--danger);
+      font-weight: 800;
+    }
+
     .table {
       width: 100%;
       border-collapse: collapse;
@@ -274,6 +306,29 @@
       border-radius: 16px;
       padding: 18px 20px;
       background: linear-gradient(180deg, rgba(212,175,55,0.08), rgba(212,175,55,0.03));
+    }
+
+    .screenshot-box {
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      overflow: hidden;
+      background: #fff;
+      box-shadow: 0 12px 30px rgba(15,23,42,0.06);
+    }
+
+    .screenshot-box img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .screenshot-caption {
+      padding: 14px 16px;
+      font-size: 14px;
+      color: var(--muted);
+      background: #fafafa;
+      border-top: 1px solid var(--line);
     }
 
     @media print {
@@ -340,6 +395,45 @@
           Die bestehende Website wird als <strong>langsam</strong>, <strong>visuell zu dunkel</strong> und technisch nicht mehr überzeugend wahrgenommen.
           Zusätzlich treten <strong>Fehlermeldungen in der Browser-Konsole</strong> auf. Gerade im Gastronomie-Bereich ist der erste Eindruck entscheidend:
           Eine Website muss Appetit machen, Vertrauen schaffen und Reservierungen fördern.
+        </div>
+      </section>
+
+      <section class="section">
+        <h2 class="section-title">Technische Auffälligkeiten der aktuellen Website</h2>
+        <div class="problem-box">
+          Bei der Analyse der bestehenden Website wurden mehrere konkrete technische Probleme sichtbar. Diese Fehler deuten auf
+          <strong>technische Altlasten, fehlerhafte Ressourcen-Einbindungen und unnötige Komplexität</strong> hin. Solche Probleme führen nicht nur zu
+          einem unruhigen technischen Unterbau, sondern können sich auch negativ auf <strong>Performance, Stabilität, Darstellung und Wartbarkeit</strong> auswirken.
+        </div>
+
+        <div class="columns" style="margin-top:18px;">
+          <div class="card">
+            <h3>Im Screenshot erkennbar</h3>
+            <ul class="issue-list">
+              <li>Mehrere <strong>404-Fehler</strong> bei Elementor-Pro-CSS-Dateien</li>
+              <li><strong>CORS-Probleme</strong> bei geladenen Webfonts</li>
+              <li>Fehlende oder blockierte Schriftdateien</li>
+              <li>Hinweise auf ältere bzw. migrierte WordPress-Strukturen</li>
+              <li>Unnötige externe Abhängigkeiten, die den Seitenaufbau belasten</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Was das für den Kunden bedeutet</h3>
+            <ul class="highlight-list">
+              <li>Weniger Vertrauen in die technische Qualität der aktuellen Lösung</li>
+              <li>Risiko für Darstellungsprobleme bei Schriften und Seitenelementen</li>
+              <li>Schlechtere Ausgangslage für Performance-Optimierung</li>
+              <li>Mehr Wartungsaufwand durch gewachsene Altstrukturen</li>
+              <li>Ein Relaunch ist nicht nur optisch, sondern auch technisch sinnvoll</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="screenshot-box">
+          <img src="https://github.com/hassan19775113/kalimera/assets/1238876833/console-kalimera-existing-site-error.png" alt="Screenshot der aktuellen Kalimera-Website mit geöffneten Browser-Developer-Tools und sichtbaren Konsolenfehlern" />
+          <div class="screenshot-caption">
+            Beleg aus der Analyse der bestehenden Website: Sichtbare Konsolenfehler, fehlende Ressourcen (404), blockierte Font-Dateien und technische Auffälligkeiten der aktuellen WordPress-/Plugin-Struktur.
+          </div>
         </div>
       </section>
 
