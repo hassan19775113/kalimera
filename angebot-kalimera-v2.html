@@ -1,0 +1,2000 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Angebot – Neuer Webauftritt für Kalimera</title>
+  <style>
+    :root {
+      --primary: #143a63;
+      --primary-dark: #0d2845;
+      --gold: #d4af37;
+      --gold-dark: #b89322;
+      --gold-light: #f7e7a9;
+      --text: #1f2937;
+      --muted: #6b7280;
+      --line: #e5e7eb;
+      --bg: #f8fafc;
+      --white: #ffffff;
+      --success: #0f766e;
+      --success-bg: #ecfdf5;
+      --danger: #991b1b;
+      --danger-bg: #fef2f2;
+      --danger-line: #fecaca;
+      --highlight: #fff8e1;
+      --highlight-line: #ffd54f;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
+    body {
+      font-family: "Inter", "Segoe UI", Arial, sans-serif;
+      color: var(--text);
+      background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+      line-height: 1.55;
+    }
+
+    img { max-width: 100%; }
+
+    .page {
+      max-width: 980px;
+      margin: 32px auto;
+      background: var(--white);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+      border-radius: 18px;
+      overflow: hidden;
+      border: 1px solid #eef2f7;
+    }
+
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, rgba(20,58,99,0.98), rgba(13,40,69,0.96));
+      color: white;
+      padding: 56px 56px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero:before {
+      content: "";
+      position: absolute;
+      width: 420px;
+      height: 420px;
+      right: -120px;
+      top: -120px;
+      background: radial-gradient(circle, rgba(212,175,55,0.28) 0%, rgba(212,175,55,0.08) 45%, rgba(212,175,55,0) 70%);
+      border-radius: 50%;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 7px 14px;
+      border: 1px solid rgba(212,175,55,0.45);
+      border-radius: 999px;
+      color: var(--gold-light);
+      font-size: 12px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+      background: rgba(255,255,255,0.05);
+    }
+
+    h1, h2, h3, h4 {
+      margin: 0 0 12px;
+      line-height: 1.15;
+      break-after: avoid-page;
+      page-break-after: avoid;
+    }
+
+    .hero h1 {
+      font-size: 44px;
+      max-width: 760px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      max-width: 760px;
+      color: rgba(255,255,255,0.88);
+      margin-top: 16px;
+    }
+
+    .meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .meta-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 14px;
+      padding: 16px 18px;
+      backdrop-filter: blur(6px);
+      break-inside: avoid;
+    }
+
+    .meta-card .label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: rgba(255,255,255,0.66);
+      margin-bottom: 6px;
+    }
+
+    .meta-card .value {
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .content { padding: 44px 56px 56px; }
+
+    .section { margin-bottom: 40px; break-inside: avoid; }
+
+    .section-title {
+      font-size: 28px;
+      color: var(--primary);
+      margin-bottom: 14px;
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      margin-bottom: 16px;
+    }
+
+    /* Highlight-Box für Wert-Argumentation */
+    .value-banner {
+      background: linear-gradient(135deg, var(--highlight) 0%, #fff 100%);
+      border: 2px solid var(--highlight-line);
+      border-left: 6px solid var(--gold);
+      border-radius: 16px;
+      padding: 24px 28px;
+      margin: 18px 0;
+      break-inside: avoid;
+    }
+
+    .value-banner h3 {
+      color: var(--primary);
+      font-size: 22px;
+      margin-bottom: 8px;
+    }
+
+    .value-banner .savings {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--primary);
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      margin-top: 6px;
+    }
+
+    .lead-box {
+      background: linear-gradient(180deg, #fffdfa 0%, #fff 100%);
+      border: 1px solid #f3e7bb;
+      border-left: 5px solid var(--gold);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .problem-box {
+      background: linear-gradient(180deg, var(--danger-bg) 0%, #fff 100%);
+      border: 1px solid var(--danger-line);
+      border-left: 5px solid var(--danger);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .success-box {
+      background: linear-gradient(180deg, var(--success-bg) 0%, #fff 100%);
+      border: 1px solid #a7f3d0;
+      border-left: 5px solid var(--success);
+      border-radius: 14px;
+      padding: 18px 20px;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+
+    .columns-3 {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 18px;
+    }
+
+    .single-card {
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    .freebie-badge {
+      display: inline-block;
+      background: var(--success);
+      color: white;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      margin-bottom: 8px;
+    }
+
+    .freebie-note {
+      background: var(--success-bg);
+      border: 1px solid #a7f3d0;
+      border-left: 4px solid var(--success);
+      border-radius: 10px;
+      padding: 12px 14px;
+      margin: 14px 0 0;
+      font-size: 14px;
+      color: #064e3b;
+    }
+
+    .wartung-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      break-inside: avoid;
+    }
+
+    .wartung-card.featured {
+      border: 2px solid var(--gold);
+      box-shadow: 0 14px 32px rgba(212,175,55,0.22);
+      background: linear-gradient(180deg, #fffdf6 0%, #fff 100%);
+      position: relative;
+    }
+
+    .wartung-card h4 {
+      color: var(--primary);
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .wartung-card .wartung-price {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 8px 0 4px;
+    }
+
+    .wartung-card .wartung-price small {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .wartung-card .wartung-desc {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+
+    .wartung-card ul {
+      margin-top: 4px;
+      flex: 1;
+    }
+
+    .wartung-card li {
+      font-size: 14px;
+      margin-bottom: 7px;
+    }
+
+    .info-box {
+      background: #eff6ff;
+      border: 1px solid #bfdbfe;
+      border-left: 5px solid #3b82f6;
+      border-radius: 14px;
+      padding: 20px 22px;
+      margin: 14px 0 22px;
+      break-inside: avoid;
+    }
+
+    .info-box h4 {
+      color: #1e3a8a;
+      font-size: 17px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .info-box .option-row {
+      margin-bottom: 12px;
+      padding-left: 20px;
+      position: relative;
+      font-size: 14.5px;
+      color: #1e293b;
+    }
+
+    .info-box .option-row:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #3b82f6;
+      font-weight: 800;
+    }
+
+    .info-box .option-row strong {
+      color: #1e3a8a;
+    }
+
+    .info-box .tip {
+      margin-top: 14px;
+      padding: 10px 14px;
+      background: rgba(212,175,55,0.12);
+      border-radius: 10px;
+      border-left: 4px solid var(--gold);
+      font-size: 14px;
+      color: var(--primary);
+    }
+
+    /* SEO-Sektion (prominent, gold akzentuiert) */
+    .seo-section {
+      background: linear-gradient(135deg, #fff8e1 0%, #ffffff 60%);
+      border: 2px solid var(--gold);
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(212,175,55,0.15);
+    }
+
+    .seo-section .seo-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .seo-section .seo-icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: var(--primary);
+      color: var(--gold);
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(20,58,99,0.25);
+    }
+
+    .seo-section h3 {
+      color: var(--primary);
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .seo-section .seo-subline {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .seo-section .seo-value {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--gold);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 800;
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    .seo-list {
+      list-style: none;
+      padding-left: 0;
+      margin: 18px 0 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px 24px;
+    }
+
+    .seo-list li {
+      position: relative;
+      padding-left: 28px;
+      margin-bottom: 4px;
+      font-size: 14.5px;
+    }
+
+    .seo-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .seo-list li strong { color: var(--primary); }
+
+    .seo-disclaimer {
+      margin-top: 18px;
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.7);
+      border: 1px dashed rgba(20,58,99,0.25);
+      border-radius: 12px;
+      font-size: 13.5px;
+      color: var(--text);
+    }
+
+    .seo-disclaimer strong { color: var(--primary); }
+
+    /* Marketing-Pakete */
+    .marketing-card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 22px;
+      background: #fff;
+      box-shadow: 0 8px 20px rgba(15, 23, 42, 0.04);
+      display: flex;
+      flex-direction: column;
+      break-inside: avoid;
+    }
+
+    .marketing-card .mk-tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: rgba(212,175,55,0.18);
+      color: var(--primary);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+      width: max-content;
+    }
+
+    .marketing-card h4 {
+      color: var(--primary);
+      font-size: 19px;
+      margin-bottom: 4px;
+    }
+
+    .marketing-card .mk-subline {
+      color: var(--muted);
+      font-size: 13.5px;
+      margin-bottom: 14px;
+    }
+
+    .marketing-card .mk-price {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      margin: 4px 0;
+    }
+
+    .marketing-card .mk-price small {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--muted);
+      display: block;
+      margin-top: 2px;
+    }
+
+    .marketing-card .mk-detail-block {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .marketing-card .mk-detail-block:first-of-type {
+      margin-top: 0;
+      padding-top: 0;
+      border-top: none;
+    }
+
+    .marketing-card .mk-label {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 800;
+      margin-bottom: 6px;
+    }
+
+    .marketing-card .mk-content {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.55;
+    }
+
+    .marketing-card .mk-content ul {
+      margin: 6px 0 0;
+      padding-left: 20px;
+    }
+
+    .marketing-card .mk-content li {
+      margin-bottom: 5px;
+      font-size: 13.5px;
+    }
+
+    /* Domain & Hosting Sektion */
+    .hosting-section {
+      background: linear-gradient(135deg, #f0f9ff 0%, #ffffff 60%);
+      border: 2px solid #93c5fd;
+      border-radius: 18px;
+      padding: 28px;
+      box-shadow: 0 10px 30px rgba(59,130,246,0.10);
+    }
+
+    .hosting-header {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 18px;
+    }
+
+    .hosting-icon {
+      flex-shrink: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 12px;
+      background: #1e3a8a;
+      color: #ffffff;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 16px rgba(30,58,138,0.25);
+    }
+
+    .hosting-section h3 {
+      color: #1e3a8a;
+      font-size: 24px;
+      margin-bottom: 4px;
+    }
+
+    .hosting-section .hosting-subline {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .hosting-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .hosting-block {
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 14px;
+      padding: 18px 20px;
+      break-inside: avoid;
+    }
+
+    .hosting-block.stays { border-left: 5px solid var(--success); }
+    .hosting-block.changes { border-left: 5px solid #f59e0b; }
+    .hosting-block.free {
+      border-left: 5px solid var(--success);
+      background: linear-gradient(180deg, #ecfdf5 0%, #ffffff 50%);
+    }
+    .hosting-block.pays { border-left: 5px solid #6b7280; }
+
+    .hosting-block h4 {
+      font-size: 15px;
+      color: var(--primary);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .hosting-block ul {
+      margin: 0;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .hosting-block li {
+      position: relative;
+      padding-left: 22px;
+      margin-bottom: 6px;
+      font-size: 14px;
+      color: var(--text);
+    }
+
+    .hosting-block.stays li:before,
+    .hosting-block.free li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .hosting-block.changes li:before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #f59e0b;
+      font-weight: 800;
+    }
+
+    .hosting-block.pays li:before {
+      content: "€";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #6b7280;
+      font-weight: 800;
+    }
+
+    .hosting-steps {
+      margin-top: 20px;
+      padding: 18px 20px;
+      background: #ffffff;
+      border: 1px solid #dbeafe;
+      border-radius: 14px;
+    }
+
+    .hosting-steps h4 {
+      color: var(--primary);
+      font-size: 16px;
+      margin-bottom: 12px;
+    }
+
+    .hosting-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+    }
+
+    .hosting-step {
+      padding: 12px;
+      background: #f0f9ff;
+      border-radius: 10px;
+      border: 1px solid #bfdbfe;
+      text-align: center;
+    }
+
+    .hosting-step .step-num {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #1e3a8a;
+      color: #ffffff;
+      font-weight: 800;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+
+    .hosting-step .step-text {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.4;
+    }
+
+    .hosting-savings {
+      margin-top: 18px;
+      padding: 16px 20px;
+      background: linear-gradient(135deg, var(--highlight) 0%, #ffffff 100%);
+      border: 1px solid var(--highlight-line);
+      border-left: 5px solid var(--gold);
+      border-radius: 14px;
+      font-size: 15px;
+      color: var(--primary);
+    }
+
+    .hosting-savings strong { color: var(--gold-dark); }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 16px;
+      padding: 24px;
+      background: #fff;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.04);
+      break-inside: avoid;
+    }
+
+    .card.featured {
+      border: 2px solid var(--gold);
+      box-shadow: 0 18px 40px rgba(212,175,55,0.22);
+      position: relative;
+      background: linear-gradient(180deg, #fffdf6 0%, #fff 100%);
+    }
+
+    .ribbon {
+      position: absolute;
+      top: -12px;
+      right: 22px;
+      background: var(--gold);
+      color: var(--primary);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-weight: 800;
+      font-size: 12px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      box-shadow: 0 6px 14px rgba(212,175,55,0.35);
+    }
+
+    .tag {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(212,175,55,0.14);
+      color: var(--primary);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+
+    /* Preis-Darstellung */
+    .price-block { margin: 14px 0 18px; }
+
+    .price-old {
+      font-size: 16px;
+      color: var(--muted);
+      text-decoration: line-through;
+      margin-bottom: 4px;
+    }
+
+    .price {
+      font-size: 40px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .price small {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--muted);
+      display: block;
+      margin-top: 4px;
+    }
+
+    .price-monthly {
+      margin-top: 8px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    ul { margin: 14px 0 0; padding-left: 20px; }
+    li { margin-bottom: 9px; }
+
+    .highlight-list { list-style: none; padding-left: 0; margin: 0; }
+    .highlight-list li { padding-left: 28px; position: relative; margin-bottom: 11px; }
+    .highlight-list li:before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--success);
+      font-weight: 800;
+    }
+
+    .issue-list { list-style: none; padding-left: 0; margin: 0; }
+    .issue-list li { padding-left: 28px; position: relative; margin-bottom: 10px; }
+    .issue-list li:before {
+      content: "⚠";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: var(--danger);
+      font-weight: 800;
+    }
+
+    .table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 12px;
+      font-size: 15px;
+      break-inside: avoid;
+    }
+
+    .table th, .table td {
+      border: 1px solid var(--line);
+      padding: 14px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .table th {
+      background: #f8fafc;
+      color: var(--primary);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Markt-Preis-Tabelle mit Highlight-Zeile */
+    .market-table tr.your-offer {
+      background: linear-gradient(90deg, rgba(212,175,55,0.18) 0%, rgba(212,175,55,0.08) 100%);
+    }
+
+    .market-table tr.your-offer td {
+      font-weight: 700;
+      color: var(--primary);
+      border-color: var(--gold);
+    }
+
+    .market-table tr.your-offer td:first-child {
+      position: relative;
+    }
+
+    .market-table tr.your-offer td:first-child:before {
+      content: "★";
+      color: var(--gold);
+      margin-right: 6px;
+    }
+
+    /* Zeitplan */
+    .timeline {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .timeline-step {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      position: relative;
+    }
+
+    .timeline-step .week {
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--gold-dark);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .timeline-step .title {
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-step .desc {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    /* Zahlungsplan */
+    .payment-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+
+    .payment-card {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .payment-card .percent {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--gold-dark);
+      margin-bottom: 4px;
+    }
+
+    .payment-card .label {
+      font-size: 13px;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
+    .payment-card .note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+
+    .screenshot-box {
+      margin-top: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 14px;
+      background: #fff;
+      break-inside: avoid;
+    }
+
+    .screenshot-box img {
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .screenshot-caption {
+      margin-top: 10px;
+      color: var(--muted);
+      font-size: 13px;
+      font-style: italic;
+    }
+
+    .quote {
+      padding: 22px 24px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #fff9ec 0%, #ffffff 100%);
+      border: 1px solid #f5deb0;
+      font-size: 18px;
+      color: #3f3f46;
+    }
+
+    .recommendation {
+      border: 2px dashed rgba(212,175,55,0.6);
+      border-radius: 16px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, #fffefb 0%, #fffaee 100%);
+    }
+
+    .footer-box {
+      background: linear-gradient(135deg, #143a63 0%, #102f52 100%);
+      color: #fff;
+      border-radius: 18px;
+      padding: 28px;
+    }
+
+    .footer-box h3 { color: #fff; margin-bottom: 10px; }
+
+    .small { color: var(--muted); font-size: 14px; }
+
+    .signature {
+      margin-top: 18px;
+      font-weight: 700;
+      color: var(--gold-dark);
+    }
+
+    .guarantee {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      padding: 20px 22px;
+      background: var(--success-bg);
+      border: 1px solid #a7f3d0;
+      border-radius: 16px;
+      break-inside: avoid;
+    }
+
+    .guarantee .seal {
+      flex-shrink: 0;
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: var(--success);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 30px;
+      box-shadow: 0 8px 18px rgba(15,118,110,0.3);
+    }
+
+    .guarantee .text-block {
+      flex: 1;
+    }
+
+    .guarantee .text-block strong {
+      color: var(--success);
+    }
+
+    /* Print styles */
+    @media print {
+      body { background: white; }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+        border-radius: 0;
+        border: none;
+      }
+      .hero { padding-top: 34px; padding-bottom: 28px; }
+      .hero:before { display: none; }
+      .section { margin-bottom: 26px; }
+      .columns { display: block; }
+      .columns > * { margin-bottom: 18px; }
+      .timeline { grid-template-columns: repeat(2, 1fr); }
+      .payment-grid { grid-template-columns: repeat(3, 1fr); }
+      .card, .meta-card, .lead-box, .problem-box, .success-box, .quote,
+      .recommendation, .screenshot-box, .footer-box, .value-banner,
+      .timeline-step, .payment-card, .guarantee,
+      .table, table, tr, td, th, ul, ol, p, h1, h2, h3 {
+        break-inside: avoid !important;
+        page-break-inside: avoid !important;
+      }
+      .table thead { display: table-header-group; }
+    }
+
+    @media (max-width: 800px) {
+      .meta, .columns, .columns-3, .timeline, .payment-grid, .seo-list, .hosting-grid {
+        grid-template-columns: 1fr;
+      }
+      .hosting-steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .hero, .content { padding: 28px; }
+      .hero h1 { font-size: 32px; }
+      .guarantee { flex-direction: column; text-align: center; }
+      .seo-section .seo-header,
+      .hosting-header { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="badge">Premium-Angebot · Neuer Webauftritt</div>
+      <h1>Ein moderner, hochwertiger Webauftritt für Kalimera — schnell, mobil-optimiert und technisch sauber.</h1>
+      <p>
+        Ziel des Relaunches ist eine Website, die Kalimera deutlich edler präsentiert als die bestehende Lösung, technisch stabil läuft,
+        auf Smartphones genauso überzeugt wie am Desktop, Gäste aktiv zu Reservierungen und Feedback führt — und
+        <strong style="color:var(--gold-light);">durch eine saubere SEO-Grundlage bei Google deutlich besser auffindbar wird als die aktuelle Seite.</strong>
+      </p>
+
+      <div class="meta">
+        <div class="meta-card">
+          <div class="label">Kunde</div>
+          <div class="value">Kalimera Hannover / Garbsen</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Projektziel</div>
+          <div class="value">Vollständiger Relaunch der Website</div>
+        </div>
+        <div class="meta-card">
+          <div class="label">Stand</div>
+          <div class="value">Angebot zur Entscheidungsgrundlage</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="content">
+
+      <!-- AUSGANGSSITUATION -->
+      <section class="section">
+        <h2 class="section-title">Ausgangssituation</h2>
+        <div class="lead-box">
+          Die bestehende Website wird als <strong>langsam</strong>, <strong>visuell zu dunkel</strong> und technisch
+          nicht mehr überzeugend wahrgenommen. Zusätzlich treten <strong>Fehlermeldungen in der Browser-Konsole</strong> auf.
+          Gerade in der Gastronomie ist der erste Eindruck entscheidend — eine Website muss Appetit machen, Vertrauen schaffen und
+          Reservierungen aktiv fördern.
+        </div>
+      </section>
+
+      <!-- TECHNISCHE AUFFÄLLIGKEITEN -->
+      <section class="section">
+        <h2 class="section-title">Technische Auffälligkeiten der aktuellen Website</h2>
+        <div class="problem-box">
+          Bei der Analyse der bestehenden Website wurden mehrere konkrete technische Probleme sichtbar.
+          Diese Fehler deuten auf <strong>technische Altlasten, fehlerhafte Ressourcen-Einbindungen und unnötige Komplexität</strong>
+          hin und wirken sich direkt auf <strong>Performance, Stabilität, Darstellung und Wartbarkeit</strong> aus.
+        </div>
+
+        <div class="columns" style="margin-top:18px;">
+          <div class="card">
+            <h3>Im Screenshot belegbar</h3>
+            <ul class="issue-list">
+              <li>Mehrere <strong>404-Fehler</strong> bei Elementor-Pro-CSS-Dateien</li>
+              <li><strong>CORS-Probleme</strong> bei geladenen Webfonts</li>
+              <li>Fehlende oder blockierte Schriftdateien</li>
+              <li>Hinweise auf ältere, migrierte WordPress-Strukturen</li>
+              <li>Unnötige externe Abhängigkeiten verlangsamen die Seite</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Was das für Kalimera bedeutet</h3>
+            <ul class="issue-list">
+              <li>Weniger Vertrauen in die technische Qualität der aktuellen Lösung</li>
+              <li>Risiko für Darstellungsprobleme bei Schriften und Elementen</li>
+              <li>Schlechtere Ausgangslage für Performance-Optimierung</li>
+              <li>Höherer Wartungsaufwand durch gewachsene Altstrukturen</li>
+            </ul>
+            <p style="margin-top:14px; margin-bottom:0; padding:10px 14px; background:rgba(212,175,55,0.12); border-left:4px solid var(--gold); border-radius:8px; font-weight:600; color:var(--primary);">
+              → Ein Relaunch ist daher nicht nur optisch, sondern auch <strong>technisch zwingend sinnvoll</strong>.
+            </p>
+          </div>
+        </div>
+
+        <div class="screenshot-box">
+          <img src="https://raw.githubusercontent.com/hassan19775113/kalimera/main/public/kl-fehlermeldung.png"
+               alt="Screenshot der aktuellen Kalimera-Website mit geöffneten Browser-Developer-Tools und sichtbaren Konsolenfehlern" />
+          <div class="screenshot-caption">
+            Beleg aus der Analyse der bestehenden Website: Sichtbare Konsolenfehler, fehlende Ressourcen (404),
+            blockierte Font-Dateien und technische Auffälligkeiten der aktuellen WordPress-/Plugin-Struktur.
+          </div>
+        </div>
+      </section>
+
+      <!-- WARUM BEI GOOGLE NICHT SICHTBAR -->
+      <section class="section">
+        <h2 class="section-title">Warum die aktuelle Seite bei Google nicht gut rankt</h2>
+        <div class="problem-box" style="margin-bottom:18px;">
+          <strong>Ihre Beobachtung: "Wir sind bei Google nicht auf Seite 1 sichtbar."</strong>
+          <p style="margin-top:8px; margin-bottom:0;">
+            Das ist kein Zufall und kein Pech — es hat konkrete technische Gründe.
+            Die oben gezeigten Konsolenfehler sind nicht nur "kosmetische Probleme":
+            <strong>Sie sind direkte Ranking-Bremsen bei Google.</strong>
+            Hier die 5 wichtigsten Ursachen:
+          </p>
+        </div>
+
+        <table class="table">
+          <thead>
+            <tr>
+              <th style="width:24%;">Technisches Problem</th>
+              <th style="width:38%;">Wie Google darauf reagiert</th>
+              <th style="width:38%;">Folge für Kalimera</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>1. 404-Fehler &amp; defekte Ressourcen</strong><br />
+                <span class="small">(Elementor-CSS, fehlende Dateien)</span>
+              </td>
+              <td>Google-Crawler bewertet die Seite als technisch unzuverlässig — "wackelige Basis".</td>
+              <td>Niedrigere Positionierung in den Suchergebnissen, langsamere Indexierung neuer Inhalte.</td>
+            </tr>
+            <tr>
+              <td><strong>2. Langsame Ladezeiten</strong><br />
+                <span class="small">(WordPress + Plugin-Ballast)</span>
+              </td>
+              <td>"Core Web Vitals" sind seit 2021 offizieller Ranking-Faktor. Langsame Seiten fallen ab.</td>
+              <td>Mobile User springen ab, bevor die Seite lädt — Google merkt es und stuft weiter zurück.</td>
+            </tr>
+            <tr>
+              <td><strong>3. Fehlende strukturierte Daten</strong><br />
+                <span class="small">(Schema.org Restaurant)</span>
+              </td>
+              <td>Google "versteht" nicht, dass es ein Restaurant ist — keine Rich Snippets möglich
+                (Bewertungen, Öffnungszeiten, Speisekarte direkt in den Suchergebnissen).</td>
+              <td>Konkurrenten mit Schema.org-Daten erscheinen prominenter und sammeln die Klicks.</td>
+            </tr>
+            <tr>
+              <td><strong>4. Mobile-Performance</strong><br />
+                <span class="small">(Mobile-First-Indexing)</span>
+              </td>
+              <td>Google bewertet seit 2019 zuerst die mobile Version. Schlechte Mobile = schlechte Rankings überall.</td>
+              <td>Ca. 70% lokaler Restaurant-Suchen sind mobil — riesige Reichweite verschenkt.</td>
+            </tr>
+            <tr>
+              <td><strong>5. CORS-Fehler &amp; blockierte Fonts</strong><br />
+                <span class="small">(Font-Loading-Probleme)</span>
+              </td>
+              <td>Layout-Verschiebungen während des Ladens (CLS = Cumulative Layout Shift) sind Ranking-Faktor.</td>
+              <td>Schlechtere Bewertung der Nutzererfahrung — Google bevorzugt stabilere Seiten.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="success-box" style="margin-top:18px;">
+          <strong>✓ Die neue Seite fixt alle 5 Punkte technisch sauber von Grund auf.</strong>
+          <p style="margin-top:8px; margin-bottom:0;">
+            Das ist der entscheidende Hebel: Sie zahlen kein zusätzliches Marketing-Budget,
+            sondern <strong>entfernen die technischen Bremsen</strong>, die euer Ranking aktuell verhindern.
+            Mit React/Vite gebaut, mit Schema.org für Restaurants, mit PageSpeed-Garantie ≥ 90 (Mobile + Desktop),
+            mit sauberen Fonts und sauberer Code-Struktur. <strong>Genau die Punkte, die Google bewertet.</strong>
+          </p>
+          <p style="margin-top:10px; margin-bottom:0; font-size:14px; font-style:italic;">
+            Eine Referenz aus einem vergleichbaren Projekt: Nach einem ähnlichen Relaunch (Projekt Nabu jewellery)
+            erschien die Seite innerhalb von 4-6 Wochen auf Seite 1 für lokale Suchbegriffe — ohne
+            zusätzliches Marketing-Budget. Die saubere Basis allein reichte.
+          </p>
+        </div>
+      </section>
+
+      <!-- ZIEL -->
+      <section class="section">
+        <h2 class="section-title">Ziel des neuen Webauftritts</h2>
+        <ul class="highlight-list">
+          <li>Deutlich hellerer, freundlicherer und hochwertigerer Gesamtauftritt</li>
+          <li>Schnelle Ladezeiten und exzellente Nutzererfahrung auf Mobilgeräten</li>
+          <li>Klare Präsentation aller Bereiche: Restaurant, Brasserie, Markt, Weinforum und Events</li>
+          <li>Professionelle Darstellung von Speisekarten, Aktionen und Reservierungsmöglichkeiten</li>
+          <li>Moderne Funktionen für <strong>Kontakt, Reservierungen und Gästefeedback</strong></li>
+          <li>Technisch saubere und zukunftsfähige Basis ohne WordPress-Ballast</li>
+        </ul>
+      </section>
+
+      <!-- UMFANG -->
+      <section class="section">
+        <h2 class="section-title">Was Sie konkret bekommen</h2>
+        <div class="columns">
+          <div class="card">
+            <h3>10 individuell gestaltete Seiten</h3>
+            <ul class="highlight-list">
+              <li>Startseite mit Hero-Video und Konzept-Übersicht</li>
+              <li>Restaurant — mediterrane Spezialitäten</li>
+              <li>Brasserie — Frühstück und Café</li>
+              <li>Oligo-Markt — Feinkost und Delikatessen</li>
+              <li>Räumlichkeiten — Events und Tagungen</li>
+              <li>Weinforum &amp; Griechisches Haus</li>
+              <li>Kontakt mit Google-Maps und Reservierungsformular</li>
+              <li>Bewertungsseite mit eigenem Formular</li>
+              <li>Impressum und Datenschutz</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Moderne Funktionen und Komfort</h3>
+            <ul class="highlight-list">
+              <li>Hero-Videos auf jeder Seite (auch auf dem Handy zuverlässig)</li>
+              <li>Reservierungs- und Bewertungs-Formulare mit E-Mail-Versand</li>
+              <li>Eigener Datums-Picker und Sterne-Bewertung</li>
+              <li>Speisekarten als PDF zum Download</li>
+              <li>Google-Maps mit Routenplaner direkt eingebunden</li>
+              <li>Komplette SEO-Grundlage (siehe nächste Sektion)</li>
+              <li>Sprachen-Vorbereitung: Deutsch, Griechisch, Englisch</li>
+              <li>Mobile-First Design für Smartphone und Tablet</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- SEO-GRUNDLAGE -->
+      <section class="section">
+        <h2 class="section-title">SEO &amp; Auffindbarkeit bei Google</h2>
+        <p class="section-subtitle">
+          Ihr Hauptproblem heute: Die aktuelle Website ist bei Google <strong>nicht optimal sichtbar</strong>.
+          Genau das adressieren wir mit dem Relaunch — die folgende technische SEO-Grundlage ist
+          <strong>vollständig im Hauptpreis (6.900 €) enthalten</strong>, ohne Aufpreis.
+        </p>
+
+        <div class="seo-section">
+          <div class="seo-header">
+            <div class="seo-icon">🔍</div>
+            <div>
+              <h3>Komplette technische SEO-Grundlage</h3>
+              <div class="seo-subline">Damit Kalimera bei Google sauber gefunden, indexiert und bewertet wird.</div>
+              <span class="seo-value">Marktwert separat: ca. 800 – 1.500 € · im Hauptpreis enthalten</span>
+            </div>
+          </div>
+
+          <ul class="seo-list">
+            <li><strong>Saubere Code-Struktur</strong> ohne typische WordPress-Altlasten</li>
+            <li><strong>Strukturierte Daten</strong> (Schema.org Restaurant) — Rich Snippets bei Google</li>
+            <li><strong>Schnelle Ladezeiten</strong> (PageSpeed ≥ 90, Ranking-Faktor)</li>
+            <li><strong>Mobile-First Design</strong> (wichtigster Google-Ranking-Faktor)</li>
+            <li><strong>Individuelle Meta-Daten</strong> (Titel + Beschreibung) pro Seite</li>
+            <li><strong>OpenGraph-Tags</strong> für saubere Social-Media-Vorschauen</li>
+            <li><strong>Saubere URLs</strong> (<code>/restaurant</code> statt <code>?page_id=42</code>)</li>
+            <li><strong>Lokale SEO-Daten</strong> (Adresse + Öffnungszeiten Garbsen)</li>
+            <li><strong>XML-Sitemap + robots.txt</strong> für Google-Crawler</li>
+            <li><strong>HTTPS / SSL</strong> automatisch via Cloudflare</li>
+            <li><strong>Alt-Texte und Bild-Optimierung</strong> für Bilder-Suche</li>
+            <li><strong>Google Search Console Anmeldung</strong> und Sitemap-Einreichung</li>
+            <li><strong>Bing Webmaster Tools</strong> Anmeldung</li>
+            <li><strong>Google Business Profile</strong> Prüfung und Verlinkung</li>
+          </ul>
+
+          <div class="seo-disclaimer">
+            <strong>⚠️ Ehrliche Einschätzung:</strong> Eine SEO-Grundlage <em>garantiert</em> nicht "Platz 1" —
+            aber sie ist die unbedingte Voraussetzung, dass Sie überhaupt gut ranken können.
+            Die aktuelle Seite verhindert das aktuell aktiv durch technische Probleme (404-Fehler, fehlende strukturierte
+            Daten, langsame Ladezeiten). <strong>Mit der neuen Seite wird Kalimera technisch in die Position gebracht,
+            bei Google deutlich besser sichtbar zu sein</strong> — ohne extra Marketing-Budget.
+            Nach Go-Live beobachten wir gemeinsam 4-6 Wochen die Entwicklung; weiterführende Marketing-Pakete
+            (siehe unten) sind dann optional.
+          </div>
+        </div>
+      </section>
+
+      <!-- MARKTPREISE -->
+      <section class="section">
+        <h2 class="section-title">Realistische Marktpreise in Deutschland</h2>
+        <p class="section-subtitle">
+          Zum Vergleich: Was kostet eine vergleichbare Restaurant-Website in Deutschland 2026?
+          Die folgende Tabelle zeigt typische Preisspannen.
+          <strong>Unser Angebot positioniert sich bewusst günstiger als der reguläre Markt.</strong>
+        </p>
+        <table class="table market-table">
+          <thead>
+            <tr>
+              <th>Anbieter-Typ</th>
+              <th>Typischer Marktpreis (netto)</th>
+              <th>Einordnung</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Template / WordPress-Standard</td>
+              <td>2.000 € – 4.000 €</td>
+              <td>Einfache Standardvorlage, wenig individuell, technisch oft eingeschränkt.</td>
+            </tr>
+            <tr>
+              <td>Individuelles WordPress mit Theme</td>
+              <td>4.500 € – 8.000 €</td>
+              <td>Individuell, aber mit Plugin-Ballast und typischen WordPress-Themen.</td>
+            </tr>
+            <tr>
+              <td>Custom-Development (Freelancer)</td>
+              <td>10.000 € – 18.000 €</td>
+              <td>Genau die Qualität, die für Kalimera umgesetzt wird — modern, performant, individuell.</td>
+            </tr>
+            <tr>
+              <td>Custom-Development (Agentur)</td>
+              <td>20.000 € – 40.000 €</td>
+              <td>Gleicher Umfang, plus Projektmanagement, Strategie, Branding-Workshops.</td>
+            </tr>
+            <tr class="your-offer">
+              <td>Mein Angebot für Kalimera</td>
+              <td>6.000 € + 3 Monate Wartung gratis</td>
+              <td><strong>Deutlich unter dem realistischen Marktpreis für diese Qualität.</strong></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- VALUE BANNER -->
+        <div class="value-banner">
+          <h3>Ihr Preis-Vorteil</h3>
+          <p>
+            Die hier umgesetzte Lösung entspricht in Umfang und Qualität dem
+            <strong>Custom-Development-Segment (10.000 € – 18.000 €)</strong>:
+            React, TypeScript, individuelles Design, eigene Komponenten, Mobile-Optimierung, SEO und saubere Architektur.
+          </p>
+          <p style="margin-top:10px;">
+            Sie zahlen aber nur einen Bruchteil davon.
+          </p>
+          <span class="savings">Ersparnis ca. 30 – 50 % gegenüber Marktpreis</span>
+        </div>
+      </section>
+
+      <!-- HAUPTPAKET -->
+      <section class="section">
+        <h2 class="section-title">Das Angebot</h2>
+        <p class="section-subtitle">
+          Ein klares Hauptpaket — alles drin, was Sie für den Live-Gang brauchen. Inklusive
+          <strong>3 Monate kostenlose Wartung als Geschenk</strong>. Danach entscheiden Sie selbst, wie es weitergeht.
+        </p>
+
+        <div class="single-card">
+          <article class="card featured">
+            <div class="ribbon">Komplett-Paket</div>
+            <div class="tag">Neuerstellung &amp; Live-Gang</div>
+            <h3>Basis-Paket — Ihr neuer Webauftritt</h3>
+            <div class="price-block">
+              <div class="price-old">Marktpreis: ab 10.000 € netto</div>
+              <div class="price">6.000 € <small>, einmalig</small></div>
+            </div>
+            <span class="freebie-badge">🎁 inkl. 3 Monate Wartung gratis</span>
+            <p class="small">
+              Alles, was Sie für eine moderne Kalimera-Website brauchen — von Konzept bis Liveschaltung.
+            </p>
+            <ul>
+              <li>Konzeption und Struktur des neuen Webauftritts</li>
+              <li>Individuelles, modernes Design passend zur Marke Kalimera</li>
+              <li>Umsetzung als performante moderne Website (React, TypeScript, Vite)</li>
+              <li>Responsive Optimierung für Smartphone, Tablet, Desktop</li>
+              <li>10 individuell gestaltete Seiten inkl. Hero-Videos</li>
+              <li>Kontakt- und Reservierungsformular mit E-Mail-Versand</li>
+              <li>Feedback- und Bewertungsseite</li>
+              <li>Einbindung von Speisekarten als PDF</li>
+              <li>Google Maps mit Routenplaner</li>
+              <li>SEO-Basis inkl. strukturierter Daten (Schema.org)</li>
+              <li>Impressum und Datenschutz-Seiten</li>
+              <li>Deployment und Liveschaltung auf Cloudflare Pages</li>
+              <li>2 Korrekturschleifen vor finalem Go-Live</li>
+            </ul>
+
+            <div class="freebie-note">
+              <strong>🎁 3 Monate Wartung kostenlos inklusive</strong>
+              <ul class="highlight-list" style="margin-top:10px; margin-bottom:0;">
+                <li>Nach Go-Live betreuen wir Ihre Website 3 Monate lang gratis</li>
+                <li>1,5 Std. Pflege-Arbeit pro Monat (PDFs austauschen, Texte ändern, Checks)</li>
+                <li>Sie sparen <strong>447 €</strong> gegenüber dem regulären Monatsvertrag</li>
+              </ul>
+              <p style="margin-top:12px; margin-bottom:0;">
+                <strong>Nach den 3 Gratis-Monaten haben Sie freie Wahl:</strong><br />
+                → Wartung weiterführen (3 Optionen unten zur Auswahl)<br />
+                → Oder: Wartung beenden — keine weiteren Kosten, die Website läuft natürlich weiter.
+                Updates können Sie später jederzeit einzeln nach Stunden bestellen.
+              </p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- WARTUNGS-OPTIONEN -->
+      <section class="section">
+        <h2 class="section-title">Wartung nach den 3 Gratis-Monaten — Sie wählen</h2>
+        <p class="section-subtitle">
+          Nach Ablauf der 3 kostenlosen Monate haben Sie <strong>drei Wartungs-Optionen</strong>. Wählen Sie das Modell,
+          das am besten zu Ihrem Update-Bedarf passt — kein Modell ist verpflichtend.
+          <strong>Alle Verträge mit monatlicher Kündigungsfrist.</strong>
+        </p>
+
+        <!-- Erklär-Box: wirtschaftliche Funktionsweise -->
+        <div class="info-box">
+          <h4>ℹ️ Wichtig: Wie funktionieren die 3 Modelle wirtschaftlich?</h4>
+
+          <div class="option-row">
+            <strong>Option 1 (Nach Bedarf):</strong> Sie zahlen <strong>nur, wenn wirklich etwas anfällt</strong>.
+            Keine Fixkosten — ideal, wenn Sie selten Updates brauchen.
+          </div>
+
+          <div class="option-row">
+            <strong>Option 2 (Monatsvertrag):</strong> Wie ein Abo — Sie zahlen monatlich,
+            <strong>auch wenn in einem Monat nichts anfällt</strong>. Dafür enthalten: Sicherheits-Updates,
+            regelmäßige Checks, schnellere Reaktionszeit, monatliche Saldo-Übersicht per E-Mail,
+            und ungenutzte Stunden werden bis zu 1 Jahr lang übertragen.
+          </div>
+
+          <div class="option-row">
+            <strong>Option 3 (Stunden-Paket):</strong> Sie zahlen einmal 750 € und verbrauchen die
+            10 Stunden flexibel über 12 Monate — kein Verfall, kein Monatsdruck, transparenter Saldo per E-Mail.
+          </div>
+
+          <div class="tip">
+            <strong>💡 Tipp:</strong> Nutzen Sie die 3 Gratis-Monate als Test-Phase.
+            Danach wissen Sie aus eigener Erfahrung, welches Modell für Kalimera am besten passt.
+            Wir empfehlen nichts, was Sie nicht brauchen.
+          </div>
+        </div>
+
+        <div class="columns-3">
+          <!-- Option 1: Bedarfs-Abrechnung -->
+          <article class="wartung-card">
+            <div class="tag">Option 1</div>
+            <h4>Nach Bedarf — flexibel</h4>
+            <div class="wartung-price">
+              90 € / Std.
+              <small>kein Vertrag, nur bei Aufruf</small>
+            </div>
+            <div class="wartung-desc">
+              Sie melden sich nur, wenn etwas anfällt. Sie zahlen ausschließlich die tatsächlich geleistete Arbeit.
+            </div>
+            <ul class="highlight-list">
+              <li>Keine monatlichen Fixkosten</li>
+              <li>Mindestabrechnung 30 Min. (45 €)</li>
+              <li>Abrechnungstakt 15 Min. nach den ersten 30 Min.</li>
+              <li>Antwortzeit binnen 3 Werktagen</li>
+              <li>Volle Flexibilität ohne Bindung</li>
+              <li>Bei größeren Sachen: Festpreis auf Anfrage</li>
+            </ul>
+          </article>
+
+          <!-- Option 2: Monatsvertrag (Empfohlen) -->
+          <article class="wartung-card featured">
+            <div class="ribbon">Empfohlen</div>
+            <div class="tag">Option 2</div>
+            <h4>Monatsvertrag — Sorglos</h4>
+            <div class="wartung-price">
+              149 € / Monat
+              <small>, monatlich kündbar</small>
+            </div>
+            <div class="wartung-desc">
+              Festes Wartungs-Budget pro Monat — ideal für Restaurants mit regelmäßigen Updates.
+            </div>
+            <ul class="highlight-list">
+              <li><strong>1,5 Std. Pflege-Arbeit / Monat inklusive</strong></li>
+              <li>Nicht verbrauchte Stunden bis 1 Jahr übertragbar</li>
+              <li><strong>Monatliche Saldo-Übersicht per E-Mail</strong> (Sie wissen jederzeit, wie viele Stunden Sie noch haben)</li>
+              <li>Austausch von PDFs, Speisekarten, Aktionen</li>
+              <li>Pflege von Öffnungszeiten und Kontaktdaten</li>
+              <li>Regelmäßige Funktions- und Sicherheitskontrolle</li>
+              <li>Priorisierter Support (Antwort 24-48 Std.)</li>
+              <li>Zusätzliche Stunden: 75 € statt 90 €</li>
+              <li><strong>Monatlich kündbar — keine Mindestlaufzeit</strong></li>
+            </ul>
+          </article>
+
+          <!-- Option 3: Stunden-Paket -->
+          <article class="wartung-card">
+            <div class="tag">Option 3</div>
+            <h4>Stunden-Paket — Vorratstopf</h4>
+            <div class="wartung-price">
+              750 € einmalig
+              <small>10 Std., gültig 12 Monate</small>
+            </div>
+            <div class="wartung-desc">
+              Sie kaufen ein Stunden-Guthaben im Voraus — verbrauchen es flexibel, ohne Zeitdruck.
+            </div>
+            <ul class="highlight-list">
+              <li>10 Stunden Pflege-Arbeit insgesamt</li>
+              <li>Verbrauch flexibel über 12 Monate</li>
+              <li>Stundenpreis effektiv 75 € statt 90 €</li>
+              <li><strong>Saldo-Übersicht per E-Mail</strong> bei jedem Abruf</li>
+              <li>Keine monatliche Bindung</li>
+              <li>Aufstockung jederzeit möglich</li>
+              <li>Ideal bei unregelmäßigem Update-Bedarf</li>
+            </ul>
+          </article>
+        </div>
+
+        <div class="recommendation" style="margin-top:18px;">
+          <strong>Unsere Empfehlung:</strong> Für ein aktives Restaurant wie Kalimera (Mittagskarten, saisonale Aktionen,
+          Speisekarten-Updates) ist der <strong>Monatsvertrag</strong> meist die wirtschaftlichste Wahl. Aber kein Modell ist Pflicht —
+          Sie können auch einfach die 3 Gratis-Monate nutzen und danach komplett ohne Wartung weiterlaufen.
+        </div>
+      </section>
+
+      <!-- OPTIONALE MARKETING-PAKETE -->
+      <section class="section">
+        <h2 class="section-title">Optionale Marketing-Pakete</h2>
+        <p class="section-subtitle">
+          Die <strong>technische SEO-Grundlage ist bereits im Hauptpaket enthalten</strong> — das reicht für die meisten lokalen
+          Restaurants. Wenn Sie aber aktiv mehr Reichweite wollen, biete ich folgende <strong>optionalen Zusatz-Pakete</strong> an.
+          Alle sind <strong>monatlich kündbar</strong> und können einzeln oder kombiniert gebucht werden.
+        </p>
+
+        <div class="columns-3">
+
+          <!-- M1: Lokale SEO-Boost -->
+          <article class="marketing-card">
+            <div class="mk-tag">Marketing 1</div>
+            <h4>Lokale SEO-Boost</h4>
+            <div class="mk-subline">Einmalige Optimierung für lokale Suche &amp; Google Maps.</div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Was es ist</div>
+              <div class="mk-content">
+                Einmalige professionelle Einrichtung aller wichtigen lokalen Such-Faktoren —
+                damit Kalimera bei "griechisches Restaurant Garbsen" und ähnlichen lokalen Suchen besser auftaucht.
+              </div>
+            </div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Wie es abläuft</div>
+              <div class="mk-content">
+                <ul>
+                  <li>Google Business Profile vollständig optimieren (Kategorien, Bilder, Speisekarte, Services)</li>
+                  <li>Anmeldung in lokalen Branchenverzeichnissen (Tripadvisor, Lieferando, GelbeSeiten, etc.)</li>
+                  <li>Bewertungs-Strategie aufsetzen (QR-Code-System für Gäste-Bewertungen)</li>
+                  <li>Schema.org Local-Business-Daten verifizieren</li>
+                  <li>Übergabe-Dokument mit Anleitung zur laufenden Pflege</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Kosten</div>
+              <div class="mk-price">490 €</div>
+              <div class="mk-content small" style="margin-top:6px;">
+                Aufwand ca. 6 Stunden Setup-Arbeit. Keine laufenden Kosten danach.
+              </div>
+            </div>
+          </article>
+
+          <!-- M2: SEO-Light Monatsbetreuung -->
+          <article class="marketing-card">
+            <div class="mk-tag">Marketing 2</div>
+            <h4>SEO-Light Monatsbetreuung</h4>
+            <div class="mk-subline">Laufende SEO-Arbeit für anhaltend bessere Rankings.</div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Was es ist</div>
+              <div class="mk-content">
+                Monatliche SEO-Betreuung mit Content-Erstellung, Ranking-Beobachtung und Optimierung.
+                Sinnvoll, wenn Kalimera dauerhaft besser bei Google gefunden werden soll.
+              </div>
+            </div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Wie es abläuft</div>
+              <div class="mk-content">
+                Pro Monat:
+                <ul>
+                  <li>Keyword-Ranking-Check (welche Suchbegriffe gehen wie?)</li>
+                  <li>1 SEO-optimierter Blog-/News-Artikel (~600 Wörter)</li>
+                  <li>Google Search Console prüfen + Fehler beheben</li>
+                  <li>Monatlicher Mini-Report per E-Mail</li>
+                </ul>
+                Aufwand: ca. 3-4 Std. pro Monat.
+              </div>
+            </div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Kosten</div>
+              <div class="mk-price">290 € <small> / Monat, monatlich kündbar</small></div>
+              <div class="mk-content small" style="margin-top:6px;">
+                Keine Mindestlaufzeit. Empfehlung: mindestens 3-6 Monate für sichtbare Wirkung.
+              </div>
+            </div>
+          </article>
+
+          <!-- M3: Google Ads -->
+          <article class="marketing-card">
+            <div class="mk-tag">Marketing 3</div>
+            <h4>Google Ads Setup &amp; Management</h4>
+            <div class="mk-subline">Bezahlte Google-Anzeigen für sofortige Sichtbarkeit.</div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Was es ist</div>
+              <div class="mk-content">
+                Professionelle Einrichtung und laufende Betreuung Ihrer Google-Werbeanzeigen.
+                Im Gegensatz zu SEO wirken Google Ads sofort — sie kosten aber dauerhaft pro Klick.
+              </div>
+            </div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Wie es abläuft</div>
+              <div class="mk-content">
+                <strong>Einmaliges Setup:</strong>
+                <ul>
+                  <li>Google Ads-Konto + Conversion-Tracking einrichten</li>
+                  <li>Keyword-Recherche (lokale Suchbegriffe)</li>
+                  <li>2-3 Anzeigentexte erstellen</li>
+                  <li>Standort-Targeting (z.B. 15 km um Garbsen)</li>
+                </ul>
+                <strong>Monatliche Betreuung:</strong>
+                <ul>
+                  <li>Performance prüfen, Anzeigen optimieren</li>
+                  <li>Schlechte Keywords pausieren</li>
+                  <li>Monatlicher Report</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="mk-detail-block">
+              <div class="mk-label">Kosten</div>
+              <div class="mk-price">490 € <small>einmalig (Setup) + 250 € / Monat</small></div>
+              <div class="mk-content small" style="margin-top:6px;">
+                <strong>Wichtig:</strong> Zusätzlich zahlen Sie Google direkt das Werbe-Budget
+                (typisch 150 – 400 € / Monat, frei wählbar). Monatlich kündbar.
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+        <div class="info-box" style="margin-top:22px;">
+          <h4>ℹ️ So unterscheiden sich die Marketing-Pakete</h4>
+
+          <div class="option-row">
+            <strong>Marketing 1 (Lokale SEO-Boost):</strong> Einmaliger Aufwand, danach läuft es eigenständig.
+            Ideal als <strong>Ergänzung direkt nach Go-Live</strong>.
+          </div>
+
+          <div class="option-row">
+            <strong>Marketing 2 (SEO-Light):</strong> Dauerhafte SEO-Strategie mit Content.
+            Wirkt langsam aber nachhaltig — empfohlen ab 3-6 Monaten Laufzeit.
+          </div>
+
+          <div class="option-row">
+            <strong>Marketing 3 (Google Ads):</strong> Sofortige Sichtbarkeit gegen Bezahlung pro Klick.
+            Empfohlen für <strong>kurzfristige Aktionen</strong> (Eröffnung, Events, neue Saison).
+          </div>
+
+          <div class="tip">
+            <strong>💡 Empfehlung für Kalimera:</strong> Starten Sie mit dem Hauptpaket (technische SEO ist drin).
+            Nach 6-8 Wochen sehen wir gemeinsam, wie sich die Rankings entwickeln. <strong>Falls dann noch
+            Marketing-Bedarf besteht</strong>, ist <em>Marketing 1 (Lokale SEO-Boost, 490 € einmalig)</em>
+            meist der pragmatischste nächste Schritt — viel Wirkung, einmalige Kosten.
+          </div>
+        </div>
+      </section>
+
+      <!-- PERFORMANCE-GARANTIE -->
+      <section class="section">
+        <h2 class="section-title">Performance-Garantie</h2>
+        <div class="guarantee">
+          <div class="seal">✓</div>
+          <div class="text-block">
+            <strong>Google PageSpeed ≥ 90 (Mobile &amp; Desktop) — garantiert.</strong>
+            <p style="margin-top:6px; margin-bottom:0;">
+              Sollte die Website bei der finalen Messung die Mindest-Bewertung nicht erreichen,
+              wird kostenfrei nachoptimiert, bis der Wert sicher erreicht ist. Das gibt Ihnen
+              messbare Sicherheit für Ihre Investition.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ZEITPLAN -->
+      <section class="section">
+        <h2 class="section-title">Zeitplan</h2>
+        <p class="section-subtitle">Von Auftragsbestätigung bis Live-Gang in <strong>4 – 6 Wochen</strong>.</p>
+        <div class="timeline">
+          <div class="timeline-step">
+            <div class="week">Woche 1</div>
+            <div class="title">Konzept &amp; Briefing</div>
+            <div class="desc">Kick-off, Inhalts-Abstimmung, Sammlung Logo / Fotos / Texte.</div>
+          </div>
+          <div class="timeline-step">
+            <div class="week">Woche 2 – 3</div>
+            <div class="title">Design &amp; Layout</div>
+            <div class="desc">Visuelle Umsetzung der Hauptseiten, erste Vorschau zur Freigabe.</div>
+          </div>
+          <div class="timeline-step">
+            <div class="week">Woche 3 – 5</div>
+            <div class="title">Entwicklung</div>
+            <div class="desc">Programmierung, Anbindung der Formulare, Mobile-Optimierung, SEO.</div>
+          </div>
+          <div class="timeline-step">
+            <div class="week">Woche 5 – 6</div>
+            <div class="title">Testing &amp; Go-Live</div>
+            <div class="desc">Korrekturschleife, finale Tests, Übergabe und Liveschaltung.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ZAHLUNGSPLAN -->
+      <section class="section">
+        <h2 class="section-title">Zahlungsplan</h2>
+        <p class="section-subtitle">Faire Aufteilung in drei Raten — kein Vorab-Risiko für Sie.</p>
+        <div class="payment-grid">
+          <div class="payment-card">
+            <div class="percent">30 %</div>
+            <div class="label">Bei Auftragserteilung</div>
+            <div class="note">Startet das Projekt offiziell.</div>
+          </div>
+          <div class="payment-card">
+            <div class="percent">40 %</div>
+            <div class="label">Bei Design-Freigabe</div>
+            <div class="note">Sobald Layout und Inhalte abgenommen sind.</div>
+          </div>
+          <div class="payment-card">
+            <div class="percent">30 %</div>
+            <div class="label">Nach Go-Live</div>
+            <div class="note">Erst wenn die Website wirklich online ist.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MITWIRKUNG -->
+      <section class="section">
+        <h2 class="section-title">Was wir von Ihrer Seite benötigen</h2>
+        <div class="success-box">
+          Damit das Projekt reibungslos läuft, brauchen wir vorab folgende Inhalte vom Kunden:
+          <ul class="highlight-list" style="margin-top:12px;">
+            <li>Logo in Vektor-Format (SVG bevorzugt, alternativ hochauflösendes PNG)</li>
+            <li>Aktuelle Fotos der Räumlichkeiten und Speisen (hochauflösend, falls vorhanden)</li>
+            <li>Texte für die einzelnen Sektionen oder bestehende Webseite als Referenz</li>
+            <li>Aktuelle Speisekarten als PDF</li>
+            <li>Kontakt-Informationen, Öffnungszeiten, Social-Media-Links</li>
+            <li>Ansprechpartner für Rückfragen und Freigaben</li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- TECH VERGLEICH -->
+      <section class="section">
+        <h2 class="section-title">Technischer Vergleich</h2>
+        <p class="section-subtitle">
+          Die bestehende Website basiert sehr wahrscheinlich auf <strong>WordPress mit Elementor / Elementor Pro</strong>.
+          Der neue Webauftritt ist deutlich moderner und schlanker aufgebaut.
+        </p>
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Bereich</th>
+              <th>Neue Website</th>
+              <th>Bestehende Website</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Technische Basis</td>
+              <td>React, TypeScript, Vite, Tailwind CSS</td>
+              <td>WordPress + Elementor Pro</td>
+            </tr>
+            <tr>
+              <td>Performance</td>
+              <td>Schlanke, schnelle moderne Frontend-Struktur</td>
+              <td>Langsamer, mit Altlasten und Plugin-Ballast</td>
+            </tr>
+            <tr>
+              <td>Abhängigkeiten</td>
+              <td>Reduziert und sauber organisiert</td>
+              <td>Mehrere Plugin-, CSS- und externe Ressourcen-Abhängigkeiten</td>
+            </tr>
+            <tr>
+              <td>Fehleranfälligkeit</td>
+              <td>Geringere Komplexität, bessere Wartbarkeit</td>
+              <td>Sichtbare 404-, Font- und CORS-Fehler</td>
+            </tr>
+            <tr>
+              <td>Nutzererlebnis</td>
+              <td>Modern, hell, hochwertig, mobil optimiert</td>
+              <td>Dunklerer Gesamteindruck, weniger sauber</td>
+            </tr>
+            <tr>
+              <td><strong>SEO-Grundlage (Google-Auffindbarkeit)</strong></td>
+              <td>Vollständig: strukturierte Daten, schnelle Ladezeiten, Mobile-First, Schema.org</td>
+              <td>Technische Probleme blockieren Ranking aktiv (404-Fehler, fehlende Schema-Daten)</td>
+            </tr>
+            <tr>
+              <td>Hosting-Kosten</td>
+              <td>0 € / Monat (Cloudflare Pages, Free Plan)</td>
+              <td>Typischerweise 10 – 30 € / Monat (WordPress-Hosting)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- DOMAIN & HOSTING -->
+      <section class="section">
+        <h2 class="section-title">Domain &amp; Hosting — was bleibt, was ändert sich?</h2>
+        <p class="section-subtitle">
+          Ein häufiges Missverständnis: <strong>Sie verlieren weder Ihre Domain noch Ihre E-Mail-Adressen</strong>.
+          Hier transparent erklärt, wie der Wechsel ablaufen wird.
+        </p>
+
+        <div class="hosting-section">
+          <div class="hosting-header">
+            <div class="hosting-icon">🌐</div>
+            <div>
+              <h3>Klare Aufteilung der Verantwortlichkeiten</h3>
+              <div class="hosting-subline">
+                Vier Bereiche, klar getrennt — damit Sie genau wissen, was bleibt, was neu ist und was kostenlos läuft.
+              </div>
+            </div>
+          </div>
+
+          <div class="hosting-grid">
+
+            <!-- Was bleibt unverändert -->
+            <div class="hosting-block stays">
+              <h4>✅ Was bleibt unverändert</h4>
+              <ul>
+                <li><strong>Ihre Domain</strong> (z.B. kalimera-hannover.de) — gleiche Adresse, gleicher Anbieter</li>
+                <li><strong>Ihre E-Mail-Adressen</strong> (z.B. info@kalimera-hannover.de) — laufen weiter</li>
+                <li><strong>Volle Kontrolle</strong> über die Domain bei Ihrem aktuellen Registrar (IONOS, Strato o.ä.)</li>
+                <li>Kein Wechsel von Konto oder Login-Daten nötig</li>
+              </ul>
+            </div>
+
+            <!-- Was sich technisch ändert -->
+            <div class="hosting-block changes">
+              <h4>🔄 Was sich technisch ändert</h4>
+              <ul>
+                <li><strong>DNS-Umstellung:</strong> Domain zeigt nicht mehr auf den alten WordPress-Server, sondern auf Cloudflare Pages</li>
+                <li><strong>Übernahme:</strong> Wir konfigurieren das komplett für Sie — Sie müssen technisch nichts selbst machen</li>
+                <li><strong>Übergangszeit:</strong> 24-48 Stunden für DNS-Verbreitung weltweit</li>
+                <li><strong>Keine Downtime:</strong> Alte Seite bleibt erreichbar, bis die neue live geschaltet wird</li>
+              </ul>
+            </div>
+
+            <!-- Was kostenlos läuft -->
+            <div class="hosting-block free">
+              <h4>🎁 Was Cloudflare KOSTENLOS leistet</h4>
+              <ul>
+                <li><strong>Hosting der Website</strong> (Cloudflare Pages Free Plan)</li>
+                <li><strong>SSL/HTTPS-Zertifikat</strong> — automatisch erneuert</li>
+                <li><strong>DDoS-Schutz</strong> gegen Angriffe</li>
+                <li><strong>Globales CDN</strong> — schnelle Auslieferung weltweit</li>
+                <li><strong>Unbegrenzter Traffic</strong> — auch bei vielen Besuchern</li>
+                <li><strong>DNS-Verwaltung</strong> (optional empfohlen)</li>
+              </ul>
+            </div>
+
+            <!-- Was Sie weiter zahlen -->
+            <div class="hosting-block pays">
+              <h4>💶 Was Sie weiter zahlen</h4>
+              <ul>
+                <li><strong>Nur die Domain-Gebühr</strong> bei Ihrem bestehenden Anbieter</li>
+                <li><strong>Typischerweise 10 – 15 € pro Jahr</strong> für eine .de-Domain</li>
+                <li>Keine versteckten Hosting-Gebühren</li>
+                <li>Keine Plugin-Lizenzen wie bei WordPress</li>
+                <li>Keine Wartungsgebühren bei Cloudflare</li>
+              </ul>
+            </div>
+
+          </div>
+
+          <!-- Ablauf des Wechsels -->
+          <div class="hosting-steps">
+            <h4>So läuft der Domain-Wechsel ab — in 4 Schritten:</h4>
+            <div class="hosting-steps-grid">
+              <div class="hosting-step">
+                <div class="step-num">1</div>
+                <div class="step-text">
+                  Neue Seite wird auf Cloudflare Pages bereitgestellt — parallel zur alten Seite.
+                </div>
+              </div>
+              <div class="hosting-step">
+                <div class="step-num">2</div>
+                <div class="step-text">
+                  Wir testen alles vollständig: Formulare, Maps, Schriften, Mobile.
+                </div>
+              </div>
+              <div class="hosting-step">
+                <div class="step-num">3</div>
+                <div class="step-text">
+                  DNS-Eintrag bei Ihrem Domain-Anbieter wird auf die neue Seite umgestellt.
+                </div>
+              </div>
+              <div class="hosting-step">
+                <div class="step-num">4</div>
+                <div class="step-text">
+                  Innerhalb 24-48h ist die neue Seite unter der bekannten Domain live.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Ersparnis-Hinweis -->
+          <div class="hosting-savings">
+            <strong>💰 Langfristige Ersparnis:</strong> Typische WordPress-Hosting-Kosten liegen bei
+            <strong>10 – 30 € pro Monat</strong> (also 120 – 360 € pro Jahr). Mit der neuen Lösung zahlen Sie nur
+            die Domain-Gebühr (~10-15 € / Jahr). <strong>Sie sparen damit jährlich ca. 100 – 345 €</strong>
+            an reinen Betriebskosten — bei gleichzeitig besserer Performance.
+          </div>
+        </div>
+      </section>
+
+      <!-- NICHT ENTHALTEN -->
+      <section class="section">
+        <h2 class="section-title">Nicht im Hauptpaket enthalten</h2>
+        <p class="section-subtitle" style="margin-bottom:14px;">
+          Folgende Punkte gehören nicht zum Hauptpaket — bei Bedarf gerne als separates Paket
+          (siehe Marketing-Pakete oben).
+        </p>
+        <ul>
+          <li>Professionelle Foto- oder Videoproduktion</li>
+          <li>Umfangreiches Copywriting / Texterstellung</li>
+          <li>
+            <strong>Domain-Gebühren bei Ihrem aktuellen Anbieter</strong> (~10-15 € / Jahr für .de) —
+            siehe Sektion "Domain &amp; Hosting" oben für volle Transparenz.
+            <em>Cloudflare-Pages-Hosting selbst ist dauerhaft kostenlos.</em>
+          </li>
+          <li>
+            <strong>Laufendes Online-Marketing</strong> — bezahlte Google-Anzeigen, Social-Media-Werbung
+            und monatliche SEO-Content-Kampagnen.
+            <br />
+            <em>Wichtig: Die technische SEO-Grundlage ist im Hauptpaket bereits vollständig enthalten —
+            das reicht für die meisten lokalen Restaurants. Erweitertes Marketing ist optional und
+            in den Marketing-Paketen oben einsehbar.</em>
+          </li>
+          <li>Größere zusätzliche Funktionen außerhalb des vereinbarten Umfangs (Angebot auf Anfrage)</li>
+        </ul>
+      </section>
+
+      <!-- WARUM WARTUNG -->
+      <section class="section">
+        <h2 class="section-title">Warum die Variante mit Wartung empfehlenswert ist</h2>
+        <div class="recommendation">
+          Gerade in der Gastronomie ändern sich Inhalte regelmäßig: Speisekarten, Mittagsangebote, Aktionen,
+          Veranstaltungen, Feiertagszeiten oder Reservierungshinweise. Mit dem Wartungspaket bleibt die Website
+          <strong>aktuell, technisch kontrolliert und ohne Zusatzaufwand für Sie</strong> — und Sie zahlen weniger
+          pro Stunde, wenn doch mal mehr ansteht.
+        </div>
+      </section>
+
+      <!-- FAZIT -->
+      <section class="section footer-box">
+        <h3 class="signature">Fazit</h3>
+        <p>
+          Der vorgeschlagene Relaunch ist nicht nur eine optische Modernisierung, sondern eine
+          <strong>strategische und technische Verbesserung</strong> des digitalen Auftritts von Kalimera.
+        </p>
+        <p>
+          Mit moderner Technologie, hochwertigem Design und Funktionen für
+          <strong>Kontakt, Reservierung und Feedback</strong> entsteht eine Website, die nicht nur schöner aussieht,
+          sondern im Alltag echten Nutzen bringt — zu einem Preis,
+          der deutlich unter dem realistischen Marktwert dieser Qualität liegt.
+        </p>
+        <p class="signature">
+          Mit freundlichen Grüßen<br />
+          Ihr Webdesign- &amp; Entwicklungsangebot
+        </p>
+      </section>
+
+    </section>
+  </main>
+</body>
+</html>

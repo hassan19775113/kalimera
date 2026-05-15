@@ -7,13 +7,21 @@
     @apply box-border;
   }
 
-  html, body {
-    @apply m-0 font-sans text-gray-900 antialiased overflow-x-hidden;
-    max-width: 100vw;
-  }
-
   html {
     @apply scroll-smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply m-0 font-sans text-gray-900 antialiased;
+    /* overflow-x: clip statt hidden — clip verhindert horizontales Scrollen
+       OHNE Touch-Events oder position-fixed-Elemente zu stören (iOS Safari Bug) */
+    overflow-x: clip;
+  }
+
+  /* Tap-Delay auf iOS verhindern — bei allen klickbaren Elementen */
+  a, button, [role="button"], input, select, textarea {
+    touch-action: manipulation;
   }
 }
 
